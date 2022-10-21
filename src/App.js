@@ -1,9 +1,12 @@
 import React from 'react';
+import './App.css';
 import { Route, Routes } from 'react-router-dom';
 
 import Navbar from './components/navbar';
 import Create from './component-weight/Create';
 import BodyweightList from './component-weight/bodyweightList';
+import Workout from './components/create-workout.component';
+import WorkoutRecords from './components/workout-history.component';
 
 const App = () => {
 	return (
@@ -12,6 +15,8 @@ const App = () => {
 			<Routes>
 				<Route exact path='/' element={<BodyweightList />} />
 				<Route path='/create' element={<Create />} />
+				<Route path='/create-workout' element={<Workout />} />
+				<Route path='/view-workouts' element={<WorkoutRecords />} />
 			</Routes>
 		</div>
 	);

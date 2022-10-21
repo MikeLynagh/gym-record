@@ -34,12 +34,12 @@ export default function Navbar() {
 				<div className='collapse navbar-collapse' id='navbarNav'>
 					<ul className='navbar-nav'>
 						<li className='nav-item'>
-							<NavLink className='nav-link' to='/create'>
+							<NavLink className='nav-link' to='/view-workouts'>
 								View Workouts
 							</NavLink>
 						</li>
 						<li className='nav-item'>
-							<NavLink className='nav-link' to='/create'>
+							<NavLink className='nav-link' to='/create-workout'>
 								Enter Workout
 							</NavLink>
 						</li>
