@@ -13,7 +13,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 // This section will help you get a list of all the records.
 recordRoutes.route('/record').get(function (req, res) {
-	let db_connect = dbo.getDb('bodyweight');
+	let db_connect = dbo.getDb('workouts');
 	db_connect
 		.collection('records')
 		.find({})
@@ -38,8 +38,10 @@ recordRoutes.route('/record/add').post(function (req, response) {
 	let db_connect = dbo.getDb();
 	let myobj = {
 		date: req.body.date,
+		exercise: req.body.exercise,
 		weight: req.body.weight,
-		note: req.body.note,
+		reps: req.body.reps,
+		sets: req.body.sets,
 	};
 	db_connect.collection('records').insertOne(myobj, function (err, res) {
 		if (err) throw err;

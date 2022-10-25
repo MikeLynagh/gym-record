@@ -13,7 +13,7 @@ export default function Navbar() {
 			<nav className='navbar navbar-expand-lg navbar-light bg-light'>
 				<NavLink className='navbar-brand' to='/'>
 					<a className='navbar-brand' href='#'>
-						Add Logo/Home
+						Add Logo See Old Workouts
 					</a>
 					{/* <img */}
 					{/* // 				style={{ width: 25 + '%' }}
@@ -34,18 +34,18 @@ export default function Navbar() {
 				<div className='collapse navbar-collapse' id='navbarNav'>
 					<ul className='navbar-nav'>
 						<li className='nav-item'>
+							<NavLink className='nav-link' to='/create'>
+								Record Workout
+							</NavLink>
+						</li>
+						<li className='nav-item'>
 							<NavLink className='nav-link' to='/view-workouts'>
-								View Workouts
+								View bodyweight stuff
 							</NavLink>
 						</li>
 						<li className='nav-item'>
 							<NavLink className='nav-link' to='/create-workout'>
-								Enter Workout
-							</NavLink>
-						</li>
-						<li className='nav-item'>
-							<NavLink className='nav-link' to='/create'>
-								Record Bodyweight
+								see if needed
 							</NavLink>
 						</li>
 					</ul>

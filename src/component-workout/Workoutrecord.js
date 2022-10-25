@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 const Record = (props) => (
 	<tr>
 		<td>{props.record.date}</td>
+		<td>{props.record.exercise}</td>
 		<td>{props.record.weight}</td>
-		<td>{props.record.note}</td>
+		<td>{props.record.reps}</td>
+		<td>{props.record.sets}</td>
+
 		<td>
 			<button
 				className='btn btn-link'
@@ -19,7 +22,7 @@ const Record = (props) => (
 	</tr>
 );
 
-export default function BodyweightList() {
+export default function WorkoutList() {
 	const [records, setRecords] = useState([]);
 
 	// this method fetches the records from the database
@@ -42,7 +45,7 @@ export default function BodyweightList() {
 	}, [records.length]);
 
 	// this method will map out the recorded bodyweight entries on the table
-	function bodyweightList() {
+	function WorkoutList() {
 		return records.map((record) => {
 			return <Record record={record} key={record._id} />;
 		});
@@ -56,12 +59,14 @@ export default function BodyweightList() {
 				<thead>
 					<tr>
 						<th>Date</th>
+						<th>Exercise</th>
 						<th>Weight</th>
-						<th>Note</th>
+						<th>Reps</th>
+						<th>Sets</th>
 						<th>Action</th>
 					</tr>
 				</thead>
-				<tbody>{bodyweightList()}</tbody>
+				<tbody>{WorkoutList()}</tbody>
 			</table>
 		</div>
 	);

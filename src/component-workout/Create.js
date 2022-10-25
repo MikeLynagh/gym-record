@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom';
 export default function Create() {
 	const [form, setForm] = useState({
 		date: '',
+		exercise: '',
 		weight: '',
-		note: '',
+		reps: '',
+		sets: '',
 	});
 
 	const navigate = useNavigate();
@@ -35,7 +37,7 @@ export default function Create() {
 			return;
 		});
 
-		setForm({ date: '', weight: '', notes: '' });
+		setForm({ date: '', exercise: '', weight: '', reps: '', sets: '' });
 		navigate('/');
 	}
 
@@ -54,10 +56,22 @@ export default function Create() {
 						onChange={(e) => updateForm({ date: e.target.value })}
 					/>
 				</div>
+
 				<div className='form-group'>
-					<label htmlFor='weight'>Current Bodyweight</label>
+					<label htmlFor='note'>Add exercise ...</label>
 					<input
 						type='text'
+						className='form-control'
+						id='exercise'
+						value={form.exercise}
+						onChange={(e) => updateForm({ exercise: e.target.value })}
+					/>
+				</div>
+
+				<div className='form-group'>
+					<label htmlFor='weight'>Weight lifted ...</label>
+					<input
+						type='number'
 						className='form-control'
 						id='weight'
 						value={form.weight}
@@ -65,22 +79,30 @@ export default function Create() {
 					/>
 				</div>
 				<div className='form-group'>
-					<label htmlFor='note'>
-						Add notes, e.g. feel tired, refreshed etc.
-					</label>
+					<label htmlFor='reps'>Reps completed ...</label>
 					<input
-						type='note'
+						type='number'
 						className='form-control'
-						id='note'
-						value={form.note}
-						onChange={(e) => updateForm({ note: e.target.value })}
+						id='reps'
+						value={form.reps}
+						onChange={(e) => updateForm({ reps: e.target.value })}
+					/>
+				</div>
+				<div className='form-group'>
+					<label htmlFor='sets'>Sets completed ...</label>
+					<input
+						type='number'
+						className='form-control'
+						id='sets'
+						value={form.sets}
+						onChange={(e) => updateForm({ sets: e.target.value })}
 					/>
 				</div>
 
 				<div className='form-group'>
 					<input
 						type='submit'
-						value='Create person'
+						value='Create record'
 						className='btn btn-primary'
 					/>
 				</div>
