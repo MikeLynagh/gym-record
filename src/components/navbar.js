@@ -39,13 +39,13 @@ export default function Navbar() {
 							</NavLink>
 						</li>
 						<li className='nav-item'>
-							<NavLink className='nav-link' to='/view-workouts'>
+							<NavLink className='nav-link' to='/view-bodyweight'>
 								View bodyweight stuff
 							</NavLink>
 						</li>
 						<li className='nav-item'>
-							<NavLink className='nav-link' to='/create-workout'>
-								see if needed
+							<NavLink className='nav-link' to='/create-bodyweightrecord'>
+								Add bodyweight
 							</NavLink>
 						</li>
 					</ul>
