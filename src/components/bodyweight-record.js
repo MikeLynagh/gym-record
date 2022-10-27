@@ -6,6 +6,14 @@ import { Link, useNavigate } from 'react-router-dom';
 const BodyweightRecord = () => {
 	let history = useNavigate();
 
+	const handleEdit = (id, date, weight) => {
+		localStorage.setItem('Date', date);
+		localStorage.setItem('Weight', weight);
+		localStorage.setItem('Id', id);
+
+		history('/edit');
+	};
+
 	const handleDelete = (id) => {
 		var index = Records.map(function (e) {
 			return e.id;
@@ -44,7 +52,9 @@ const BodyweightRecord = () => {
 												</Button>
 												&nbsp;
 												<Button
-													onClick={() => alert(item.id)}
+													onClick={() =>
+														handleEdit(item.id, item.Date, item.Weight)
+													}
 													className='btn btn-dark'
 												>
 													Edit
@@ -57,7 +67,7 @@ const BodyweightRecord = () => {
 					</tbody>
 				</Table>
 				<br></br>
-				<Link className='d-grid gap-2' to='/enter-bodyweight'>
+				<Link className='d-grid gap-2' to='/add-bodyweightrecord'>
 					<Button size='lg btn btn-dark'>Create</Button>
 				</Link>
 			</div>

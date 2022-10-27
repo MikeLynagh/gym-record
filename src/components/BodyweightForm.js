@@ -10,25 +10,30 @@ const BodyweightForm = () => {
 
 	let history = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const ids = uuid();
+		let uniqueId = ids.slice(0, 8);
 
-        const ids = uuid()
-        let uniqueId = ids.slice(0, 8)
+		let a = date;
+		let b = weight;
+		console.log(a);
+		console.log(b);
 
-        let a = Date, 
-        b = Weight,
+		Records.push({ id: uniqueId, Date: a, Weight: b });
+		console.log(Records);
 
-        // Records.push({id: uniqueId, Date: a, Weight: b })
-
-        history('/view-bodyweight')
-    }
+		history('/view-bodyweight');
+	};
 
 	return (
 		<div className='container'>
-			Bodyweight Form
-			<Form className='d-grid gap-2' style={{ margin: '15rem' }}>
+			<Form className='d-grid gap-2' style={{ margin: '10rem' }}>
+				<div>
+					<h2 className='card-title'>Add Bodyweight</h2>
+				</div>
 				<Form.Group className='mb-3' controlId='formDate'>
+					<label htmlFor='sets'>Enter Date ...</label>
 					<Form.Control
 						type='date'
 						placeholder='Enter Date'
@@ -37,6 +42,8 @@ const BodyweightForm = () => {
 					></Form.Control>
 				</Form.Group>
 				<Form.Group className='mb-3' controlId='formWeight'>
+					<label htmlFor='sets'>Enter Bodyweight ...</label>
+
 					<Form.Control
 						type='text'
 						placeholder='Enter Bodyweight'

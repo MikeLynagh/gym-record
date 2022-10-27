@@ -44,7 +44,7 @@ export default function Navbar() {
 							</NavLink>
 						</li>
 						<li className='nav-item'>
-							<NavLink className='nav-link' to='/create-bodyweightrecord'>
+							<NavLink className='nav-link' to='/add-bodyweightrecord'>
 								Add bodyweight
 							</NavLink>
 						</li>
