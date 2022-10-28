@@ -7,6 +7,8 @@ const BodyweightRecord = () => {
 	let history = useNavigate();
 
 	const handleEdit = (id, date, weight) => {
+		// update this function to work off list from localstorage
+
 		localStorage.setItem('Date', date);
 		localStorage.setItem('Weight', weight);
 		localStorage.setItem('Id', id);
@@ -15,6 +17,8 @@ const BodyweightRecord = () => {
 	};
 
 	const handleDelete = (id) => {
+		// update this function to work off array from localstorage
+
 		var index = Records.map(function (e) {
 			return e.id;
 		}).indexOf(id);

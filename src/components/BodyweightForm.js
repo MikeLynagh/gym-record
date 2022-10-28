@@ -23,6 +23,8 @@ const BodyweightForm = () => {
 		Records.push({ id: uniqueId, Date: a, Weight: b });
 		console.log(Records);
 
+		localStorage.setItem('Records', JSON.stringify(Records));
+
 		history('/view-bodyweight');
 	};
 
