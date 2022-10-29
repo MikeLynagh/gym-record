@@ -18,13 +18,14 @@ const BodyweightRecord = () => {
 
 	const handleDelete = (id) => {
 		// update this function to work off array from localstorage
-
+		// iterate over records using map, find record by id
 		var index = Records.map(function (e) {
 			return e.id;
 		}).indexOf(id);
-
+		// remove an element of the array at index
 		Records.splice(index, 1);
-
+		// update localstorage, this has the updated records array.
+		localStorage.setItem('Records', JSON.stringify(Records));
 		history('/view-bodyweight');
 	};
 

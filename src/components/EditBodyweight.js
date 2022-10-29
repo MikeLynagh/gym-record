@@ -22,6 +22,8 @@ function Edit() {
 		a.Date = date;
 		a.Weight = weight;
 
+		localStorage.setItem('Records', JSON.stringify(Records));
+
 		history('/view-bodyweight');
 	};
 
