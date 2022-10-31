@@ -2,24 +2,50 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Record = (props) => (
-	<tr>
-		<td>{props.record.date}</td>
-		<td>{props.record.exercise}</td>
-		<td>{props.record.weight}</td>
-		<td>{props.record.reps}</td>
-		<td>{props.record.sets}</td>
+	<div className='row mx-auto' style={{ width: '200px' }}>
+		<div className='col-sm-8'>
+			<div className='card mt-3' style={{ width: '18rem' }}>
+				<div className='card-body'></div>
+				<h5 className='card-title'>Date: {props.record.date}</h5>
+				<h6 class='card-subtitle mb-2 text-muted'>
+					Exercise 1: {props.record.exercise}, {props.record.weight} kg
+				</h6>
 
-		<td>
-			<button
-				className='btn btn-link'
-				onClick={() => {
-					props.deleteRecord(props.record._id);
-				}}
-			>
-				Delete
-			</button>
-		</td>
-	</tr>
+				<ul className='list-group list-group-flush'>
+					<li className='list-group-item'>
+						Sets and Reps: {props.record.sets1} {props.record.sets2}{' '}
+						{props.record.sets3} {props.record.sets4} {props.record.sets5}
+					</li>
+				</ul>
+				<h6 class='card-subtitle mb-2 text-muted'>
+					Exercise 2: {props.record.exercise1}, {props.record.weight1} kg
+				</h6>
+				<ul className='list-group list-group-flush'>
+					<li className='list-group-item'>
+						Sets and Reps: {props.record.sets6} {props.record.sets7}{' '}
+						{props.record.sets8} {props.record.sets9} {props.record.sets10}
+					</li>
+				</ul>
+				<h6 class='card-subtitle mb-2 text-muted'>
+					Exercise 3: {props.record.exercise}, {props.record.weight} kg
+				</h6>
+				<ul className='list-group list-group-flush'>
+					<li className='list-group-item'>
+						Sets and Reps: {props.record.sets1} {props.record.sets2}{' '}
+						{props.record.sets3} {props.record.sets4} {props.record.sets5}
+					</li>
+				</ul>
+				<button
+					className='btn btn-link'
+					onClick={() => {
+						props.deleteRecord(props.record._id);
+					}}
+				>
+					Delete
+				</button>
+			</div>
+		</div>
+	</div>
 );
 
 export default function WorkoutList() {
@@ -46,6 +72,7 @@ export default function WorkoutList() {
 
 	// this method will map out the recorded bodyweight entries on the table
 	function WorkoutList() {
+		console.log(records);
 		return records.map((record) => {
 			return <Record record={record} key={record._id} />;
 		});
@@ -54,20 +81,9 @@ export default function WorkoutList() {
 	// this section wil display the table with the records given
 	return (
 		<div>
-			<h3>Record List </h3>
-			<table className='table table-striped' style={{ marginTop: 20 }}>
-				<thead>
-					<tr>
-						<th>Date</th>
-						<th>Exercise</th>
-						<th>Weight</th>
-						<th>Reps</th>
-						<th>Sets</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				<tbody>{WorkoutList()}</tbody>
-			</table>
+			<h3>Previous Workouts </h3>
+
+			<div>{WorkoutList()}</div>
 		</div>
 	);
 }

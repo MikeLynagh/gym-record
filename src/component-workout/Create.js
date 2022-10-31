@@ -1,13 +1,25 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Form } from 'react-bootstrap';
 
 export default function Create() {
 	const [form, setForm] = useState({
 		date: '',
 		exercise: '',
 		weight: '',
-		reps: '',
-		sets: '',
+		sets1: '',
+		sets2: '',
+		sets3: '',
+		sets4: '',
+		sets5: '',
+		exercise1: '',
+		weight1: '',
+		sets5: '',
+		sets6: '',
+		sets7: '',
+		sets8: '',
+		sets9: '',
+		sets10: '',
 	});
 
 	const navigate = useNavigate();
@@ -37,76 +49,295 @@ export default function Create() {
 			return;
 		});
 
-		setForm({ date: '', exercise: '', weight: '', reps: '', sets: '' });
+		setForm({
+			date: '',
+			exercise: '',
+			weight: '',
+			sets1: '',
+			sets2: '',
+			sets3: '',
+			sets4: '',
+			sets5: '',
+			exercise1: '',
+			weight1: '',
+			sets5: '',
+			sets6: '',
+			sets7: '',
+			sets8: '',
+			sets9: '',
+			sets10: '',
+		});
 		navigate('/');
 	}
 
 	// This following section will display the form that takes the input from the user.
 	return (
 		<div>
-			<h3>Create New Record</h3>
-			<form onSubmit={onSubmit}>
-				<div className='form-group'>
-					<label htmlFor='date'>Date</label>
-					<input
-						type='date'
-						className='form-control'
-						id='date'
-						value={form.date}
-						onChange={(e) => updateForm({ date: e.target.value })}
-					/>
-				</div>
+			<div
+				className='container square border'
+				style={{ backgroundcolor: '#fafafa' }}
+			>
+				<h1>Complete Workout... </h1>
+				<form onSubmit={onSubmit}>
+					<div class='d-flex justify-content-center'>
+						<div className='form-group'>
+							<input
+								type='date'
+								className='form-control'
+								id='date'
+								value={form.date}
+								onChange={(e) => updateForm({ date: e.target.value })}
+							/>
+						</div>
+					</div>
+					<div class='d-flex justify-content-between'>
+						<div className='form-group'>
+							<input
+								placeholder='Squat'
+								type='text'
+								className='form-control'
+								id='exercise'
+								value={form.exercise}
+								onChange={(e) => updateForm({ exercise: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								placeholder='5 x 5 45kg'
+								type='number'
+								className='form-control'
+								id='weight'
+								value={form.weight}
+								onChange={(e) => updateForm({ weight: e.target.value })}
+							/>
+						</div>
+					</div>
+					<div class='d-flex justify-content-evenly'>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								type='number'
+								placeholder='5'
+								className='form-control'
+								id='sets1'
+								value={form.sets1}
+								onChange={(e) => updateForm({ sets1: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								placeholder='5'
+								type='number'
+								className='form-control'
+								id='sets2'
+								value={form.sets2}
+								onChange={(e) => updateForm({ sets2: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								type='number'
+								placeholder='5'
+								className='form-control'
+								id='sets3'
+								value={form.sets3}
+								onChange={(e) => updateForm({ sets3: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								type='number'
+								placeholder='5'
+								className='form-control'
+								id='sets4'
+								value={form.sets4}
+								onChange={(e) => updateForm({ sets4: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								type='number'
+								placeholder='5'
+								className='form-control'
+								id='sets5'
+								value={form.sets5}
+								onChange={(e) => updateForm({ sets5: e.target.value })}
+							/>
+						</div>
+					</div>
+					<div class='d-flex justify-content-between'>
+						<div className='form-group'>
+							<input
+								placeholder='Squat'
+								type='text'
+								className='form-control'
+								id='exercise1'
+								value={form.exercise1}
+								onChange={(e) => updateForm({ exercise1: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								placeholder='5 x 5 45kg'
+								type='number'
+								className='form-control'
+								id='weight1'
+								value={form.weight1}
+								onChange={(e) => updateForm({ weight1: e.target.value })}
+							/>
+						</div>
+					</div>
+					<div class='d-flex justify-content-evenly'>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								type='number'
+								placeholder='5'
+								className='form-control'
+								id='sets6'
+								value={form.sets6}
+								onChange={(e) => updateForm({ sets6: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								placeholder='5'
+								type='number'
+								className='form-control'
+								id='sets7'
+								value={form.sets7}
+								onChange={(e) => updateForm({ sets7: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								type='number'
+								placeholder='5'
+								className='form-control'
+								id='sets8'
+								value={form.sets8}
+								onChange={(e) => updateForm({ sets8: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								type='number'
+								placeholder='5'
+								className='form-control'
+								id='sets9'
+								value={form.sets9}
+								onChange={(e) => updateForm({ sets9: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								type='number'
+								placeholder='5'
+								className='form-control'
+								id='sets10'
+								value={form.sets10}
+								onChange={(e) => updateForm({ sets10: e.target.value })}
+							/>
+						</div>
+					</div>
 
-				<div className='form-group'>
-					<label htmlFor='exercise'>Add exercise ...</label>
-					<input
-						type='text'
-						className='form-control'
-						id='exercise'
-						value={form.exercise}
-						onChange={(e) => updateForm({ exercise: e.target.value })}
-					/>
-				</div>
-
-				<div className='form-group'>
-					<label htmlFor='weight'>Weight lifted ...</label>
-					<input
-						type='number'
-						className='form-control'
-						id='weight'
-						value={form.weight}
-						onChange={(e) => updateForm({ weight: e.target.value })}
-					/>
-				</div>
-				<div className='form-group'>
-					<label htmlFor='reps'>Reps completed ...</label>
-					<input
-						type='number'
-						className='form-control'
-						id='reps'
-						value={form.reps}
-						onChange={(e) => updateForm({ reps: e.target.value })}
-					/>
-				</div>
-				<div className='form-group'>
-					<label htmlFor='sets'>Sets completed ...</label>
-					<input
-						type='number'
-						className='form-control'
-						id='sets'
-						value={form.sets}
-						onChange={(e) => updateForm({ sets: e.target.value })}
-					/>
-				</div>
-
-				<div className='form-group'>
-					<input
-						type='submit'
-						value='Create record'
-						className='btn btn-primary'
-					/>
-				</div>
-			</form>
+					<div className='form-group d-flex justify-content-center'>
+						<input
+							type='submit'
+							value='Save Workout'
+							className='btn btn-dark'
+						/>
+					</div>
+				</form>
+			</div>
 		</div>
 	);
 }

@@ -40,8 +40,18 @@ recordRoutes.route('/record/add').post(function (req, response) {
 		date: req.body.date,
 		exercise: req.body.exercise,
 		weight: req.body.weight,
-		reps: req.body.reps,
-		sets: req.body.sets,
+		sets1: req.body.sets1,
+		sets2: req.body.sets2,
+		sets3: req.body.sets3,
+		sets4: req.body.sets4,
+		sets5: req.body.sets5,
+		exercise1: req.body.exercise1,
+		weight1: req.body.weight1,
+		sets6: req.body.sets6,
+		sets7: req.body.sets7,
+		sets8: req.body.sets8,
+		sets9: req.body.sets9,
+		sets10: req.body.sets10,
 	};
 	db_connect.collection('records').insertOne(myobj, function (err, res) {
 		if (err) throw err;
