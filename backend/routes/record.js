@@ -52,6 +52,13 @@ recordRoutes.route('/record/add').post(function (req, response) {
 		sets8: req.body.sets8,
 		sets9: req.body.sets9,
 		sets10: req.body.sets10,
+		exercise2: req.body.exercise2,
+		weight2: req.body.weight2,
+		sets11: req.body.sets11,
+		sets12: req.body.sets12,
+		sets13: req.body.sets13,
+		sets14: req.body.sets14,
+		sets15: req.body.sets15,
 	};
 	db_connect.collection('records').insertOne(myobj, function (err, res) {
 		if (err) throw err;

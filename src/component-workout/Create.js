@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form } from 'react-bootstrap';
 
 export default function Create() {
 	const [form, setForm] = useState({
@@ -14,12 +13,18 @@ export default function Create() {
 		sets5: '',
 		exercise1: '',
 		weight1: '',
-		sets5: '',
 		sets6: '',
 		sets7: '',
 		sets8: '',
 		sets9: '',
 		sets10: '',
+		exercise2: '',
+		weight2: '',
+		sets11: '',
+		sets12: '',
+		sets13: '',
+		sets14: '',
+		sets15: '',
 	});
 
 	const navigate = useNavigate();
@@ -60,12 +65,18 @@ export default function Create() {
 			sets5: '',
 			exercise1: '',
 			weight1: '',
-			sets5: '',
 			sets6: '',
 			sets7: '',
 			sets8: '',
 			sets9: '',
 			sets10: '',
+			exercise2: '',
+			weight2: '',
+			sets11: '',
+			sets12: '',
+			sets13: '',
+			sets14: '',
+			sets15: '',
 		});
 		navigate('/');
 	}
@@ -325,6 +336,125 @@ export default function Create() {
 								id='sets10'
 								value={form.sets10}
 								onChange={(e) => updateForm({ sets10: e.target.value })}
+							/>
+						</div>
+					</div>
+					<div class='d-flex justify-content-between'>
+						<div className='form-group'>
+							<input
+								placeholder='Squat'
+								type='text'
+								className='form-control'
+								id='exercise2'
+								value={form.exercise2}
+								onChange={(e) => updateForm({ exercise2: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								placeholder='5 x 5 45kg'
+								type='number'
+								className='form-control'
+								id='weight2'
+								value={form.weight2}
+								onChange={(e) => updateForm({ weight2: e.target.value })}
+							/>
+						</div>
+					</div>
+					<div class='d-flex justify-content-evenly'>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								type='number'
+								placeholder='5'
+								className='form-control'
+								id='sets11'
+								value={form.sets11}
+								onChange={(e) => updateForm({ sets11: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								placeholder='5'
+								type='number'
+								className='form-control'
+								id='sets12'
+								value={form.sets12}
+								onChange={(e) => updateForm({ sets12: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								type='number'
+								placeholder='5'
+								className='form-control'
+								id='sets13'
+								value={form.sets13}
+								onChange={(e) => updateForm({ sets13: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								type='number'
+								placeholder='5'
+								className='form-control'
+								id='sets14'
+								value={form.sets14}
+								onChange={(e) => updateForm({ sets14: e.target.value })}
+							/>
+						</div>
+						<div className='form-group'>
+							<input
+								style={{
+									margin: '10px',
+									display: 'flex',
+									width: '50px',
+									height: '50px',
+									backgroundColor: 'red',
+									borderRadius: '50%',
+									color: 'white',
+								}}
+								type='number'
+								placeholder='5'
+								className='form-control'
+								id='sets15'
+								value={form.sets15}
+								onChange={(e) => updateForm({ sets15: e.target.value })}
 							/>
 						</div>
 					</div>
