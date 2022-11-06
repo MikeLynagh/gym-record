@@ -4,7 +4,7 @@
 
 @media (min-width: 425px) {
   .container{
-      max-width: 425px;
+      max-width: 600px;
       border: 2px solid black;
   }
 }

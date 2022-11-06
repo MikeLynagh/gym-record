@@ -6,6 +6,7 @@ import WorkoutList from './component-workout/Workoutrecord';
 import BodyweightForm from './components/BodyweightForm';
 import BodyweightRecord from './components/bodyweight-record';
 import Edit from './components/EditBodyweight';
+import Login from './components/Login';
 
 const App = () => {
 	// all states
@@ -13,6 +14,7 @@ const App = () => {
 	return (
 		<div>
 			<Navbar />
+			{/* <Login /> */}
 			<Routes>
 				<Route exact path='/' element={<WorkoutList />} />
 				<Route path='/create' element={<Create />} />
