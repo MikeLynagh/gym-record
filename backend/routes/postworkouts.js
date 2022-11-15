@@ -46,13 +46,13 @@ router.delete('/:id', async (req, res) => {
 
 //get all workouts
 
-router.get('/workouts/all', async (req, res) => {
+router.get('/workouts/:userId', async (req, res) => {
 	try {
 		// get the current id of this user
-		const currentUser = await User.findById(req.body.userId);
+		const currentUser = await User.findById(req.params.userId);
 		// add all workouts by this id to workouts array
 		const userWorkouts = await Post.find({ userId: currentUser._id });
-		res.json(userWorkouts);
+		res.status(200).json(userWorkouts);
 	} catch (err) {
 		res.status(500).json(err);
 	}
