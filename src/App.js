@@ -10,12 +10,12 @@ import Login from './components/Login';
 import useToken from './components/useToken';
 
 const App = () => {
-	// const { token, setToken } = useToken();
+	const { token, setToken } = useToken();
 
 	// if there is no token provided, show Login page
-	// if (!token) {
-	// 	return <Login setToken={setToken} />;
-	// }
+	if (!token) {
+		return <Login setToken={setToken} />;
+	}
 	// all states
 
 	return (
