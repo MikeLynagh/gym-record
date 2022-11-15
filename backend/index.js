@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const cors = require('cors');
 // path to router / users
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/users');
@@ -22,7 +21,6 @@ mongoose
 
 // middleware
 app.use(express.json());
-app.use(cors());
 app.use(helmet());
 app.use(morgan('common'));
 app.use('/api/auth', authRoute);

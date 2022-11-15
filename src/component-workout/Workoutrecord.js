@@ -1,22 +1,14 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Record = (props) => (
-	<div className='row mx-auto' style={{ width: '300px' }}>
+	<div className='row mx-auto' style={{ width: '200px' }}>
 		<div className='col-sm-8'>
-			<div className='card mt-3' style={{ width: '25rem' }}>
+			<div className='card mt-3' style={{ width: '18rem' }}>
 				<div className='card-body'></div>
 				<h5 className='card-title'>Date: {props.record.date}</h5>
 				<h6 class='card-subtitle mb-2 text-muted'>
-					Ex 1: {props.record.exercise}, {props.record.weight} kg, Sets & Reps:{' '}
-					{props.record.sets1} {props.record.sets2} {props.record.sets3}{' '}
-					{props.record.sets4} {props.record.sets5}
-				</h6>
-				<h6 class='card-subtitle mb-2 text-muted'>
-					Ex 2: {props.record.exercise1}, {props.record.weight1} kg, Sets &
-					Reps: {props.record.sets1} {props.record.sets2} {props.record.sets3}{' '}
-					{props.record.sets4} {props.record.sets5}
+					Exercise 1: {props.record.exercise}, {props.record.weight} kg
 				</h6>
 
 				<ul className='list-group list-group-flush'>
@@ -56,37 +48,6 @@ const Record = (props) => (
 	</div>
 );
 
-// export default function WorkoutList() {
-// 	const [records, setRecords] = useState([]);
-
-// 	useEffect(() => {
-// 		const getWorkoutList = async () => {
-// 			const res = await axios.get(
-// 				'http://localhost:8800/api/posts/workouts/63661f6f45c33bb71360b74d'
-// 			);
-
-// 			const records = res.data;
-// 			setRecords(records);
-// 			console.log(records);
-// 		};
-// 		getWorkoutList();
-// 	}, []);
-
-// 	function WorkoutList() {
-// 		return records.map((record) => {
-// 			return <Record record={record} key={record._id} />;
-// 		});
-// 	}
-
-// 	return (
-// 		<div>
-// 			<h3>Previous Workouts </h3>
-// 			// <div>{WorkoutList()}</div>
-// 		</div>
-// 	);
-// }
-
-// this is the old code - it works fine ********************`
 export default function WorkoutList() {
 	const [records, setRecords] = useState([]);
 
