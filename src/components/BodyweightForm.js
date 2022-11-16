@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
 
 export default function BodyweightForm() {
 	// need state to track bodyweight records
