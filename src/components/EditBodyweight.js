@@ -11,7 +11,7 @@ function Edit() {
 
 	let history = useNavigate();
 
-	var index = Records.map(function (e) {
+	var index = Records.map(function(e) {
 		return e.id;
 	}).indexOf(id);
 

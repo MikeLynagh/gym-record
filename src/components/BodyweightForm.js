@@ -1,36 +1,45 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import Records from './records';
-import { v4 as uuid } from 'uuid';
 import { Link, useNavigate } from 'react-router-dom';
 
-const BodyweightForm = () => {
-	const [date, setDate] = useState('');
-	const [weight, setWeight] = useState('');
+export default function BodyweightForm() {
+	// need state to track bodyweight records
+	const [bodyweightrecords, setBodyweightrecords] = useState([]);
+	// need state to track value of inputs
+	const [bodyweightrecord, setBodyweightrecord] = useState('');
 
-	let history = useNavigate();
+	// function to get value of input and set to new state
+	function handleInputChange(e) {
+		// set state to value from input box
+		setBodyweightrecord(e.target.value);
+	}
 
-	const handleSubmit = (e) => {
+	// function to create a new object on form submit
+	function handleFormSubmit(e) {
 		e.preventDefault();
-		const ids = uuid();
-		let uniqueId = ids.slice(0, 8);
 
-		let a = date;
-		let b = weight;
-		console.log(a);
-		console.log(b);
+		// don't submit if input is an empty string
+		if (bodyweightrecord !== '') {
+			// set the bodyweightrecords array
+			setBodyweightrecords([
+				...bodyweightrecords,
+				{
+					id: bodyweightrecords.length + 1,
+					text: bodyweightrecord.trim(),
+				},
+			]);
+		}
 
-		Records.push({ id: uniqueId, Date: a, Weight: b });
-		console.log(Records);
-
-		localStorage.setItem('Records', JSON.stringify(Records));
-
-		history('/view-bodyweight');
-	};
+		setBodyweightrecord('');
+	}
 
 	return (
 		<div className='container'>
-			<Form className='d-grid gap-2' style={{ margin: '10rem' }}>
+			<Form
+				onSubmit={handleFormSubmit}
+				className='d-grid gap-2'
+				style={{ margin: '10rem' }}
+			>
 				<div>
 					<h2 className='card-title'>Add Bodyweight</h2>
 				</div>
@@ -40,7 +49,6 @@ const BodyweightForm = () => {
 						type='date'
 						placeholder='Enter Date'
 						required
-						onChange={(e) => setDate(e.target.value)}
 					></Form.Control>
 				</Form.Group>
 				<Form.Group className='mb-3' controlId='formWeight'>
@@ -50,128 +58,117 @@ const BodyweightForm = () => {
 						type='text'
 						placeholder='Enter Bodyweight'
 						required
-						onChange={(e) => setWeight(e.target.value)}
+						name='bodyweightrecord'
+						onChange={handleInputChange}
+						value={bodyweightrecord}
 					></Form.Control>
 				</Form.Group>
-				<Button onClick={(e) => handleSubmit(e)} type='submit'>
-					submit
-				</Button>
+				<Button type='submit'>Submit</Button>
 			</Form>
+			{/* // ul to hold bodyweight records */}
+			<div className='container'>
+				<ul className='bodyweightrecord-list'>
+					{/* map over the todos array which creates a new li element for every todo */}
+					{bodyweightrecords.map((bodyweightrecord) => (
+						<li key={bodyweightrecord.id}>{bodyweightrecord.text} kg</li>
+					))}
+				</ul>
+			</div>
 		</div>
 	);
-};
+}
 
-export default BodyweightForm;
-// import React, { useState } from 'react';
-// import { Form, Button } from 'react-bootstrap';
-// import { v4 as uuidv4 } from 'uuid';
+// import React, { Component, useState } from 'react';
+// import { Button, Form } from 'react-bootstrap';
+// import Records from './records';
+// import { Link, useNavigate } from 'react-router-dom';
 
-// const WorkoutForm = (props) => {
-// 	const [workout, setWorkout] = useState({
-// 		exercise: props.workout ? props.workout.exercise : '',
-// 		reps: props.workout ? props.workout.reps : '',
-// 		sets: props.workout ? props.workout.price : '',
-// 		date: props.workout ? props.workout.date : '',
-// 	});
+// export default class BodyweightForm extends Component {
+// 	userData;
+// 	constructor(props) {
+// 		super(props);
+// 		this.onChangeDate = this.onChangeDate.bind(this);
+// 		this.onChangeBodyweight = this.onChangeBodyweight.bind(this);
+// 		this.onSubmit = this.onSubmit.bind(this);
+// 		this.state = {
+// 			date: '',
+// 			bodyweight: '',
+// 		};
+// 	}
 
-// 	const [errorMsg, setErrorMsg] = useState('');
-// 	const { exercise, reps, sets } = workout;
+// 	// form events
 
-// 	const handleSubmit = (event) => {
-// 		event.preventDefault();
-// 		const values = [exercise, reps, sets];
-// 		let errorMsg = '';
+// 	onChangeDate(e) {
+// 		this.setState({ date: e.target.value });
+// 	}
 
-// 		const allFieldsFilled = values.every((field) => {
-// 			const value = `${field}`.trim();
-// 			return value !== '' && value !== '0';
+// 	onChangeBodyweight(e) {
+// 		this.setState({ bodyweight: e.target.value });
+// 	}
+
+// 	onSubmit(e) {
+// 		e.preventDefault();
+// 		this.setState({
+// 			date: '',
+// 			bodyweight: '',
 // 		});
+// 	}
 
-// 		if (allFieldsFilled) {
-// 			const workout = {
-// 				id: uuidv4(),
-// 				exercise,
-// 				reps,
-// 				sets,
-// 				date: new Date(),
-// 			};
-// 			props.handleSubmit(workout);
+// 	// react life cycle
+// 	componentDidMount() {
+// 		this.userData = JSON.parse(localStorage.getItem('record'));
+// 		if (localStorage.getItem('record')) {
+// 			this.setState({
+// 				date: this.userData.date,
+// 				bodyweight: this.userData.bodyweight,
+// 			});
 // 		} else {
-// 			errorMsg = 'Please fill out all the fields.';
+// 			this.setState({
+// 				date: '',
+// 				bodyweight: '',
+// 			});
 // 		}
-// 		setErrorMsg(errorMsg);
-// 	};
+// 	}
 
-// 	const handleInputChange = (event) => {
-// 		const { name, value } = event.target;
-// 		switch (name) {
-// 			case 'reps':
-// 				if (value === '' || parseInt(value) === +value) {
-// 					setWorkout((prevState) => ({
-// 						...prevState,
-// 						[name]: value,
-// 					}));
-// 				}
-// 				break;
-// 			case 'sets':
-// 				if (value === '' || parseInt(value) === +value) {
-// 					setWorkout((prevState) => ({
-// 						...prevState,
-// 						[name]: value,
-// 					}));
-// 				}
-// 				break;
-// 			default:
-// 				setWorkout((prevState) => ({
-// 					...prevState,
-// 					[name]: value,
-// 				}));
-// 		}
-// 	};
+// 	componentWillUpdate(nextProps, nextState) {
+// 		localStorage.setItem('record', JSON.stringify(nextState));
+// 	}
 
-// 	return (
-// 		<div className='main-form'>
-// 			{errorMsg && <p className='errorMsg'>{errorMsg}</p>}
-// 			<Form onSubmit={handleSubmit}>
-// 				<Form.Group controlId='exercise'>
-// 					<Form.Label>Enter exercise</Form.Label>
-// 					<Form.Control
-// 						className='input-control'
-// 						type='text'
-// 						name='exercise'
-// 						value={exercise}
-// 						placeholder='Enter exercise'
-// 						onChange={handleInputChange}
-// 					/>
-// 				</Form.Group>
-// 				<Form.Group controlId='reps'>
-// 					<Form.Label>Enter Reps</Form.Label>
-// 					<Form.Control
-// 						className='input-control'
-// 						type='number'
-// 						name='reps'
-// 						value={reps}
-// 						placeholder='Enter reps completed'
-// 						onChange={handleInputChange}
-// 					/>
-// 				</Form.Group>
-// 				<Form.Group controlId='sets'>
-// 					<Form.Label>Enter Sets</Form.Label>
-// 					<Form.Control
-// 						className='input-control'
-// 						type='number'
-// 						name='sets'
-// 						value={sets}
-// 						placeholder='Enter sets completed '
-// 						onChange={handleInputChange}
-// 					/>
-// 				</Form.Group>
-// 				<Button variant='primary' type='submit' className='submit-btn'>
-// 					Submit
-// 				</Button>
-// 			</Form>
-// 		</div>
-// 	);
-// };
+// 	render() {
+// return (
+// 	<div className='container'>
+// 		<Form
+// 			onSubmit={this.onSubmit}
+// 			className='d-grid gap-2'
+// 			style={{ margin: '10rem' }}
+// 		>
+// 			<div>
+// 				<h2 className='card-title'>Add Bodyweight</h2>
+// 			</div>
+// 			<Form.Group className='mb-3' controlId='formDate'>
+// 				<label htmlFor='sets'>Enter Date ...</label>
+// 				<Form.Control
+// 					type='date'
+// 					placeholder='Enter Date'
+// 					required
+// 					value={this.state.date}
+// 					onChange={this.onChangeDate}
+// 				></Form.Control>
+// 			</Form.Group>
+// 			<Form.Group className='mb-3' controlId='formWeight'>
+// 				<label htmlFor='sets'>Enter Bodyweight ...</label>
 
-// export default WorkoutForm;
+// 				<Form.Control
+// 					type='text'
+// 					placeholder='Enter Bodyweight'
+// 					required
+// 					value={this.state.bodyweight}
+// 					onChange={this.onChangeBodyweight}
+// 				></Form.Control>
+// 			</Form.Group>
+// 			<Button type='submit'>Submit</Button>
+// 		</Form>
+// 	</div>
+// );
+// 	}
+// }
