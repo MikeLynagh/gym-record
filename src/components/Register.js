@@ -1,44 +1,71 @@
+import axios from 'axios';
 import React, { useState } from 'react';
-const Register = () => {
-	// states created for data and setdata
-	const [data, setData] = useState({
-		first_name: '',
+import { Navigate, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+const Register = (props) => {
+	// use for naviaget
+	const history = useNavigate();
+
+	// states created for inpal and setInpval
+	const [inpval, setInpval] = useState({
+		username: '',
 		email: '',
 		password: '',
 	});
-	// handlechange will setdata equal to data provided
-	const handleChange = (e) => {
-		setData({ ...data, [e.target.name]: e.target.value });
 
-		console.log(data);
+	const [data, sendData] = useState([]);
+
+	const getdata = (e) => {
+		// console.log(e.target.value);
+		const { value, name } = e.target;
+		// console.log(value, name);
+
+		// setInpval will update based on value inputted by user
+
+		setInpval(() => {
+			return { ...inpval, [name]: value };
+		});
 	};
 
-	const SubmitForm = (e) => {
+	const addData = (e) => {
 		e.preventDefault();
-		data = {
-			first_name: data.first_name,
-			email: data.email,
-			password: data.password,
-		};
+		const { username, email, password } = inpval;
+
+		// add requirements
+		if (username === '') {
+			alert('username is required ');
+		} else if (email === '') {
+			alert('email is required ');
+		} else if (!email.includes('@')) {
+			alert('please enter valid email address');
+		} else if (password === '') {
+			alert('password field cannot be blank');
+		} else if (password.length < 5) {
+			alert('password must be at least 6 characters');
+		} else {
+			console.log('data added successfully ');
+
+			localStorage.setItem('siteuser', JSON.stringify([...data, inpval]));
+		}
 	};
 
 	return (
 		<div className='main-box'>
-			<form onSubmit={SubmitForm}>
+			<form>
 				<div className='row'>
 					<div className='col-md-12 text-center'>
 						<h1>Sign Up</h1>
 					</div>
 				</div>
 				<div className='row'>
-					<div className='col-md-6'>First Name</div>
+					<div className='col-md-6'>Create Username</div>
 					<div className='col-md-6'>
 						<input
 							type='text'
-							name='first_name'
+							name='username'
 							className='form-control'
-							onChange={handleChange}
-							value={data.first_name}
+							onChange={getdata}
 						/>
 					</div>
 				</div>
@@ -49,8 +76,7 @@ const Register = () => {
 							type='email'
 							name='email'
 							className='form-control'
-							onChange={handleChange}
-							value={data.email}
+							onChange={getdata}
 						/>
 					</div>
 				</div>
@@ -61,8 +87,7 @@ const Register = () => {
 							type='password'
 							name='password'
 							className='form-control'
-							onChange={handleChange}
-							value={data.password}
+							onChange={getdata}
 						/>
 					</div>
 				</div>
@@ -73,10 +98,17 @@ const Register = () => {
 							name='submit'
 							value='Register'
 							className='btn btn-dark'
+							onClick={addData}
 						/>
 					</div>
 				</div>
 			</form>
+			<p className='mt-3'>
+				Already have an account ?{' '}
+				<span>
+					<NavLink to='/login'>Sign In</NavLink>
+				</span>
+			</p>
 		</div>
 	);
 };
