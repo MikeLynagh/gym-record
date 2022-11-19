@@ -8,6 +8,7 @@ import BodyweightRecord from './components/bodyweight-record';
 import Edit from './components/EditBodyweight';
 import Login from './components/Login';
 import Register from './components/Register';
+import Details from './components/Details';
 import './App.css';
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
 				<Route path='/add-bodyweightrecord' element={<BodyweightForm />} />
 				<Route path='/view-bodyweight' element={<BodyweightRecord />} />
 				<Route path='/edit' element={<Edit />} />
+				<Route path='/user' element={<Details />} />
 			</Routes>
 		</div>
 	);
