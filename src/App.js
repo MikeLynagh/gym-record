@@ -9,6 +9,7 @@ import Edit from './components/EditBodyweight';
 import Login from './components/Login';
 import Register from './components/Register';
 import Details from './components/Details';
+import Error from './components/Error';
 import './App.css';
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
 				<Route path='/view-bodyweight' element={<BodyweightRecord />} />
 				<Route path='/edit' element={<Edit />} />
 				<Route path='/user' element={<Details />} />
+				<Route path='*' element={<Error />} />
 			</Routes>
 		</div>
 	);

@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
+import Modal from 'react-bootstrap/Modal';
+import { useNavigate } from 'react-router-dom';
 
 const details = () => {
 	const [logindata, setLoginData] = useState([]);
 	console.log(logindata);
 
-	const Birthday = () => {
-		const getuser = localStorage.getItem('siteuser');
+	const history = useNavigate();
+
+	const [show, setShow] = useState(false);
+
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
+
+	const checkUser = () => {
+		const getuser = localStorage.getItem('user_login');
 		if (getuser && getuser.length) {
 			const user = JSON.parse(getuser);
 			// console.log(user)
@@ -15,15 +24,17 @@ const details = () => {
 	};
 
 	const userlogout = () => {
+		// removes details for current user logged in
 		localStorage.removeItem('user_login');
+		history('/register');
 	};
 
 	useEffect(() => {
-		Birthday();
+		checkUser();
 	}, []);
 
 	return (
-		<div>
+		<>
 			{logindata.length === 0 ? (
 				'error'
 			) : (
@@ -33,7 +44,7 @@ const details = () => {
 					<Button onClick={userlogout}>LOG OUT</Button>
 				</div>
 			)}
-		</div>
+		</>
 	);
 };
 
