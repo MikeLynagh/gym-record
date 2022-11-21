@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { v4 as uuid } from 'uuid';
 import Records from './records';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,10 +19,12 @@ function Edit() {
 		e.preventDefault();
 
 		let a = Records[index];
-		a.Date = date;
-		a.Weight = weight;
+		a.bodyweight = weight;
+		a.date = date;
 
-		localStorage.setItem('Records', JSON.stringify(Records));
+		// Records.push({ id: uniqueId, bodyweight: a, date: b });
+
+		// localStorage.setItem('Records', JSON.stringify(Records));
 
 		history('/view-bodyweight');
 	};
@@ -36,7 +39,7 @@ function Edit() {
 		<div className='container'>
 			<Form className='d-grid gap-2' style={{ margin: '10rem' }}>
 				<div>
-					<h2 className='card-title'>Add Bodyweight</h2>
+					<h2 className='card-title'>Edit Old Records</h2>
 				</div>
 				<Form.Group className='mb-3' controlId='formDate'>
 					<label htmlFor='sets'>Enter Date ...</label>

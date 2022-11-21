@@ -32,7 +32,7 @@ const BodyweightRecord = () => {
 	return (
 		<div className='container'>
 			<h2>List of Weights </h2>
-			<div style={{ margin: '10rem' }}>
+			<div style={{ margin: '8rem' }}>
 				<Table striped bordered hover size='sm'>
 					<thead>
 						<tr>
@@ -46,8 +46,8 @@ const BodyweightRecord = () => {
 							? Records.map((item) => {
 									return (
 										<tr>
-											<td>{item.Date}</td>
-											<td>{item.Weight}</td>
+											<td>{item.date}</td>
+											<td>{item.weight}</td>
 											<td>
 												<Button
 													onClick={() => handleDelete(item.id)}
@@ -58,7 +58,7 @@ const BodyweightRecord = () => {
 												&nbsp;
 												<Button
 													onClick={() =>
-														handleEdit(item.id, item.Date, item.Weight)
+														handleEdit(item.id, item.weight, item.date)
 													}
 													className='btn btn-dark'
 												>
