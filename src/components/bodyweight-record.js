@@ -58,7 +58,7 @@ const BodyweightRecord = () => {
 												&nbsp;
 												<Button
 													onClick={() =>
-														handleEdit(item.id, item.weight, item.date)
+														handleEdit(item.date, item.weight, item.id)
 													}
 													className='btn btn-dark'
 												>

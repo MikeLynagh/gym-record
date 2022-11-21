@@ -19,7 +19,7 @@ function Edit() {
 		e.preventDefault();
 
 		let a = Records[index];
-		a.bodyweight = weight;
+		a.weight = weight;
 		a.date = date;
 
 		// Records.push({ id: uniqueId, bodyweight: a, date: b });
