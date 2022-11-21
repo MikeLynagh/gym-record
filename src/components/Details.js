@@ -36,7 +36,19 @@ const details = () => {
 	return (
 		<>
 			{logindata.length === 0 ? (
-				'error'
+				<div>
+					<div className='container'>
+						<div className='error d-flex flex-column justify-content-lg-center align-items-center'>
+							<h4>404 Error !User not found!</h4>
+							<button
+								className=' btn btn-dark'
+								onClick={() => history('/register')}
+							>
+								Sign up or Login
+							</button>
+						</div>
+					</div>
+				</div>
 			) : (
 				<div>
 					<h1>User details </h1>

@@ -1,5 +1,11 @@
-import React, { useState } from 'react';
-import { BroswerRouter, Navigate, Route, Routes } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import {
+	BroswerRouter,
+	useNavigate,
+	Navigate,
+	Route,
+	Routes,
+} from 'react-router-dom';
 import Navbar from './components/navbar';
 import Create from './component-workout/Create';
 import WorkoutList from './component-workout/Workoutrecord';
@@ -13,19 +19,41 @@ import Error from './components/Error';
 import './App.css';
 
 const App = () => {
-	// all states
-	const user = false;
+	// function to set boolean to true if user logged in
+	const checkUser = () => {
+		const getuser = localStorage.getItem('user_login');
+		if (getuser && getuser.length !== 0) {
+			return true;
+		} else {
+			return false;
+		}
+	};
+
+	const user = checkUser();
 
 	return (
 		<div>
 			<Navbar />
 			<Routes>
-				<Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
+				<Route path='/login' element={<Login />} />
 				<Route path='/register' element={<Register />} />
-				<Route exact path='/' element={<WorkoutList />} />
-				<Route path='/create' element={<Create />} />
-				<Route path='/add-bodyweightrecord' element={<BodyweightForm />} />
-				<Route path='/view-bodyweight' element={<BodyweightRecord />} />
+				<Route
+					exact
+					path='/'
+					element={user ? <WorkoutList /> : <Navigate to='/user' />}
+				/>
+				<Route
+					path='/create'
+					element={user ? <Create /> : <Navigate to='/user' />}
+				/>
+				<Route
+					path='/add-bodyweightrecord'
+					element={user ? <BodyweightForm /> : <Navigate to='user' />}
+				/>
+				<Route
+					path='/view-bodyweight'
+					element={user ? <BodyweightRecord /> : <Navigate to='user' />}
+				/>
 				<Route path='/edit' element={<Edit />} />
 				<Route path='/user' element={<Details />} />
 				<Route path='*' element={<Error />} />
