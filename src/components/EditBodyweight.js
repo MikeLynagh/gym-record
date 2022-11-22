@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { v4 as uuid } from 'uuid';
-import Records from './records';
+import Records from './Records';
 import { useNavigate } from 'react-router-dom';
 
 function Edit() {
@@ -11,7 +11,7 @@ function Edit() {
 
 	let history = useNavigate();
 
-	var index = Records.map(function(e) {
+	var index = Records.map(function (e) {
 		return e.id;
 	}).indexOf(id);
 

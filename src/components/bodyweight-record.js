@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
-import Records from './records';
+import Records from './Records';
 import { Link, useNavigate } from 'react-router-dom';
+import LineChart from './LineChart';
 
 const BodyweightRecord = () => {
 	let history = useNavigate();
@@ -29,9 +30,32 @@ const BodyweightRecord = () => {
 		history('/view-bodyweight');
 	};
 
+	// sample data for graph
+	const [userData, setUserData] = useState({
+		labels: Records.map((item) => item.date),
+		datasets: [
+			{
+				label: 'Bodyweight Records',
+				data: Records.map((item) => item.weight),
+				backgroundColor: [
+					'rgba(75,192,192,1)',
+					'#ecf0f1',
+					'#50AF95',
+					'#f3ba2f',
+					'#2a71d0',
+				],
+				borderColor: 'black',
+				borderWidth: 2,
+			},
+		],
+	});
+
 	return (
 		<div className='container'>
-			<h2>List of Weights </h2>
+			<div>
+				<LineChart chartData={userData} />
+			</div>
+			<h2>List of Bodyweight Entries </h2>
 			<div style={{ margin: '8rem' }}>
 				<Table striped bordered hover size='sm'>
 					<thead>
