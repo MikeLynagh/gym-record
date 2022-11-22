@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 const Register = (props) => {
@@ -46,6 +46,7 @@ const Register = (props) => {
 			console.log('data added successfully ');
 
 			localStorage.setItem('siteuser', JSON.stringify([...data, inpval]));
+			history('/');
 		}
 	};
 

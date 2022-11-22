@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const Record = (props) => (
 	<div className='row mx-auto' style={{ width: '200px' }}>
