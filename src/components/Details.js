@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import { useNavigate } from 'react-router-dom';
 
-const details = () => {
+const Details = () => {
 	const [logindata, setLoginData] = useState([]);
 	console.log(logindata);
 
@@ -60,4 +60,4 @@ const details = () => {
 	);
 };
 
-export default details;
+export default Details;
