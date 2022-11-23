@@ -29,7 +29,7 @@ export default function Create() {
 
 	const navigate = useNavigate();
 
-	// these methods will update the state properties
+	// function updateForm will update state properties
 	function updateForm(value) {
 		return setForm((prev) => {
 			return { ...prev, ...value };
@@ -40,15 +40,18 @@ export default function Create() {
 	async function onSubmit(e) {
 		e.preventDefault();
 
-		// When a post request is sent to the create url, we'll add a new record to the database.
-		const newPerson = { ...form };
+		// When a post request is sent to the create url,
+		//we'll add a new record to the database.
+
+		// when post request sent, adds a new record to database
+		const newRecord = { ...form };
 
 		await fetch('http://localhost:5000/record/add', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify(newPerson),
+			body: JSON.stringify(newRecord),
 		}).catch((error) => {
 			window.alert(error);
 			return;
@@ -81,7 +84,8 @@ export default function Create() {
 		navigate('/');
 	}
 
-	// This following section will display the form that takes the input from the user.
+	// form to record workout
+
 	return (
 		<div>
 			<div

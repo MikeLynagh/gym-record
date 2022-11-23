@@ -52,7 +52,7 @@ export default function WorkoutList() {
 
 	// this method fetches the records from the database
 	useEffect(() => {
-		async function getbodyweightList() {
+		async function getWorkoutList() {
 			const response = await fetch(`http://localhost:5000/record/`);
 
 			if (!response.ok) {
@@ -64,16 +64,32 @@ export default function WorkoutList() {
 			const records = await response.json();
 			setRecords(records);
 		}
-		getbodyweightList();
+		getWorkoutList();
 
 		return;
 	}, [records.length]);
+
+	// function to delete a workout from list
+	async function deleteRecord(id) {
+		await fetch(`http://localhost:5000/${id}`, {
+			method: 'DELETE',
+		});
+
+		const newRecords = records.filter((el) => el._id !== id);
+		setRecords(newRecords);
+	}
 
 	// this method will map out the recorded bodyweight entries on the table
 	function WorkoutList() {
 		console.log(records);
 		return records.map((record) => {
-			return <Record record={record} key={record._id} />;
+			return (
+				<Record
+					record={record}
+					deleteRecord={() => deleteRecord(record._id)}
+					key={record._id}
+				/>
+			);
 		});
 	}
 

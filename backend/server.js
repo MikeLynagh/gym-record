@@ -6,13 +6,19 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(require('./routes/record'));
-// get driver connection
+// connect to driver
 const dbo = require('./db/conn');
 
 app.listen(port, () => {
-	// perform a database connection when server starts
-	dbo.connectToServer(function(err) {
+	// check if connection to database when server starts
+	dbo.connectToServer(function (err) {
 		if (err) console.error(err);
 	});
 	console.log(`Server is running on port: ${port}`);
 });
+
+// cors
+// installs a Node.js package to allow cross origin resource sharing
+
+//dotenv
+// this is installed to hide passwords
