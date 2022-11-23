@@ -19,20 +19,16 @@ function Edit() {
 		e.preventDefault();
 
 		let a = Records[index];
-		a.weight = weight;
 		a.date = date;
-
-		// Records.push({ id: uniqueId, bodyweight: a, date: b });
-
-		// localStorage.setItem('Records', JSON.stringify(Records));
+		a.weight = weight;
 
 		history('/view-bodyweight');
 	};
 
 	useEffect(() => {
-		setDate(localStorage.getItem('Date'));
-		setWeight(localStorage.getItem('Weight'));
-		setId(localStorage.getItem('Id'));
+		setDate(localStorage.getItem('date'));
+		setWeight(localStorage.getItem('weight'));
+		setId(localStorage.getItem('id'));
 	}, []);
 
 	return (

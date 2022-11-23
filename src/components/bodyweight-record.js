@@ -7,12 +7,15 @@ import LineChart from './LineChart';
 const BodyweightRecord = () => {
 	let history = useNavigate();
 
-	const handleEdit = (id, date, weight) => {
-		// update this function to work off list from localstorage
+	// function to edit previous bodyweight record entries
+	const handleEdit = (date, weight, id) => {
+		localStorage.setItem('date', date);
+		localStorage.setItem('weight', weight);
+		localStorage.setItem('id', id);
 
-		localStorage.setItem('Date', date);
-		localStorage.setItem('Weight', weight);
-		localStorage.setItem('Id', id);
+		// localStorage.setItem('Date', date);
+		// localStorage.setItem('Weight', weight);
+		// localStorage.setItem('Id', id);
 
 		history('/edit');
 	};
@@ -30,12 +33,12 @@ const BodyweightRecord = () => {
 		history('/view-bodyweight');
 	};
 
-	// sample data for graph
+	//  data for line graph
 	const [userData, setUserData] = useState({
 		labels: Records.map((item) => item.date),
 		datasets: [
 			{
-				label: 'Bodyweight Records',
+				label: 'Bodyweight Records (KG)',
 				data: Records.map((item) => item.weight),
 				backgroundColor: [
 					'rgba(75,192,192,1)',
@@ -71,7 +74,7 @@ const BodyweightRecord = () => {
 									return (
 										<tr>
 											<td>{item.date}</td>
-											<td>{item.weight}</td>
+											<td>{item.weight} kg</td>
 											<td>
 												<Button
 													onClick={() => handleDelete(item.id)}
