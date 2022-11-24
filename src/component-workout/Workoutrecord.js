@@ -26,7 +26,7 @@ const Record = (props) => (
 					</li>
 				</ul>
 				<h6 class='card-subtitle mb-2 text-muted'>
-					Exercise 3: {props.record.exercise}, {props.record.weight} kg
+					Exercise 3: {props.record.exercise2}, {props.record.weight2} kg
 				</h6>
 				<ul className='list-group list-group-flush'>
 					<li className='list-group-item'>
@@ -96,7 +96,7 @@ export default function WorkoutList() {
 	// this section wil display the table with the records given
 	return (
 		<div>
-			<h3>Previous Workouts </h3>
+			<h1>Previous Workouts </h1>
 
 			<div>{WorkoutList()}</div>
 		</div>
