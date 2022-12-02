@@ -9,6 +9,8 @@ function BodyweightForm() {
 	const [weight, setWeight] = useState('');
 	const [id, setId] = useState('');
 
+	// usestate true / false boolean
+
 	let history = useNavigate();
 
 	const handleSubmit = (e) => {

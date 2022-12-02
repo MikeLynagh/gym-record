@@ -47,6 +47,84 @@ const Record = (props) => (
 	</div>
 );
 
+// const LastWeight = (props) => {
+// 	const [oldweight, setOldWeight] = useState(props.record.weight);
+// 	const [addweight] = useState(2.5);
+// 	const weight2 = props.record.weight1;
+// 	const weight = 10;
+// 	return (
+// 		<div>
+// 			<h1>{parseInt(weight2) + addweight}</h1>
+// 			<h1>{parseInt(oldweight) + weight}</h1>
+// 		</div>
+// 	);
+// };
+
+//takes the last weight used and adds 2.5kg
+const LastWeight = (props) => {
+	const addweight = 2.5;
+	const weight = props.record.weight;
+	const weight1 = props.record.weight1;
+	const weight2 = props.record.weight2;
+
+	return (
+		<div className='row mx-auto' style={{ width: '260px' }}>
+			<div>
+				<table class='table table-bordered table-dark'>
+					<thead>
+						<tr>
+							<th scope='col'>Previous Weight </th>
+							<th scope='col'></th>
+							<th scope='col'>Target Weight</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan='2'>
+								{props.record.exercise} {props.record.weight} kg
+							</td>
+							<td>
+								<h4>{parseInt(weight) + addweight}</h4>
+							</td>
+						</tr>
+						<tr>
+							<td colspan='2'>
+								{props.record.exercise1}, {props.record.weight1} kg
+							</td>
+							<td>
+								{' '}
+								<h4>{parseInt(weight1) + addweight}</h4>
+							</td>
+						</tr>
+						<tr>
+							<td colspan='2'>
+								{props.record.exercise2}, {props.record.weight2} kg
+							</td>
+							<td>
+								{' '}
+								<h4>{parseInt(weight) + addweight}</h4>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	);
+};
+
+// const LastWeight = (props) => {
+// 	const [oldweight, setOldWeight] = useState(props.record.weight);
+// 	const [addweight] = useState(2.5);
+// 	const weight2 = props.record.weight1;
+// 	const weight = 10;
+// 	return (
+// 		<div>
+// 			<h1>{parseInt(weight2) + addweight}</h1>
+// 			<h1>{parseInt(oldweight) + weight}</h1>
+// 		</div>
+// 	);
+// };
+
 export default function WorkoutList() {
 	const [records, setRecords] = useState([]);
 
@@ -63,6 +141,7 @@ export default function WorkoutList() {
 
 			const records = await response.json();
 			setRecords(records);
+			return records;
 		}
 		getWorkoutList();
 
@@ -81,7 +160,6 @@ export default function WorkoutList() {
 
 	// this method will map out the recorded bodyweight entries on the table
 	function WorkoutList() {
-		console.log(records);
 		return records.map((record) => {
 			return (
 				<Record
@@ -93,10 +171,21 @@ export default function WorkoutList() {
 		});
 	}
 
+	function IncreaseWeight() {
+		const final2 = records.slice(-2);
+		return final2.map((record) => {
+			return <LastWeight record={record} key={record._id} />;
+		});
+	}
+	IncreaseWeight();
+
 	// this section wil display the table with the records given
 	return (
 		<div>
-			<h1>Previous Workouts </h1>
+			<h1>Target Weights </h1>
+			<div>{IncreaseWeight()}</div>
+
+			<h1 className='header'>Previous Workouts </h1>
 
 			<div>{WorkoutList()}</div>
 		</div>

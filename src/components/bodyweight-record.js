@@ -13,10 +13,6 @@ const BodyweightRecord = () => {
 		localStorage.setItem('weight', weight);
 		localStorage.setItem('id', id);
 
-		// localStorage.setItem('Date', date);
-		// localStorage.setItem('Weight', weight);
-		// localStorage.setItem('Id', id);
-
 		history('/edit');
 	};
 
