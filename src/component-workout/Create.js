@@ -34,6 +34,9 @@ export default function Create() {
 	// boolean to show workout 2
 	const [iShownWorkout2, setIsShownWorkout2] = useState(false);
 
+	//boolean state to set button backgroun color
+	const [isActive, setIsActive] = useState(false);
+
 	// function to change boolean status on click
 	const handleClick = (event) => {
 		setIsShown((current) => !current);
@@ -42,6 +45,12 @@ export default function Create() {
 	// function change boolean status for workout 2
 	const handleClickWorkout2 = (event) => {
 		setIsShownWorkout2((current) => !current);
+	};
+
+	// function to change boolean status for reps button
+	//change button color from red to green
+	const handleClickReps = (event) => {
+		setIsActive((current) => !current);
 	};
 
 	// function updateForm will update state properties
@@ -161,12 +170,13 @@ export default function Create() {
 							<div class='d-flex justify-content-evenly'>
 								<div className='form-group'>
 									<input
+										onClick={handleClickReps}
 										style={{
 											margin: '10px',
 											display: 'flex',
 											width: '50px',
 											height: '50px',
-											backgroundColor: 'red',
+											backgroundColor: isActive ? 'green' : 'red',
 											borderRadius: '50%',
 											color: 'white',
 										}}
