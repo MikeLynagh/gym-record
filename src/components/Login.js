@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
+import gymrecordlogo from '../images/gymrecordlogo.png';
 
 export default function Login() {
 	const history = useNavigate();
@@ -62,6 +63,8 @@ export default function Login() {
 
 	return (
 		<div className='main-box'>
+			<img src={gymrecordlogo} className='mx-auto d-block' />
+
 			<form>
 				<div className='row'>
 					<div className='col-md-12 text-center'>

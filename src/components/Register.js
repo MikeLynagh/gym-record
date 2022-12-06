@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import gymrecordlogo from '../images/gymrecordlogo.png';
 
 const Register = (props) => {
 	// use for naviaget
@@ -46,12 +47,13 @@ const Register = (props) => {
 			console.log('data added successfully ');
 
 			localStorage.setItem('siteuser', JSON.stringify([...data, inpval]));
-			history('/');
+			history('/login');
 		}
 	};
 
 	return (
 		<div className='main-box'>
+			<img src={gymrecordlogo} className='mx-auto d-block' />
 			<form>
 				<div className='row'>
 					<div className='col-md-12 text-center'>

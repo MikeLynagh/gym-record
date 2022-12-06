@@ -1,10 +1,7 @@
 import React from 'react';
-
-// We import bootstrap to make our application look better.
 import 'bootstrap/dist/css/bootstrap.css';
-
-// We import NavLink to utilize the react router.
 import { NavLink } from 'react-router-dom';
+import gymrecordlogo from '../images/gymrecordlogo.png';
 
 // Here, we display our Navbar
 export default function Navbar() {
@@ -13,7 +10,7 @@ export default function Navbar() {
 			<nav className='navbar navbar-expand-lg navbar-light bg-light'>
 				<NavLink className='navbar-brand' to='/'>
 					<a className='navbar-brand' href='#'>
-						Add Logo See Old Workouts
+						<img src={gymrecordlogo} width='50' height='50' />
 					</a>
 				</NavLink>
 				<button
@@ -46,7 +43,7 @@ export default function Navbar() {
 						</li>
 						<li className='nav-item'>
 							<NavLink className='nav-link' to='/view-bodyweight'>
-								View bodyweight stuff
+								Bodyweight History
 							</NavLink>
 						</li>
 						<li className='nav-item'>
