@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import WorkoutData from '../components/WorkoutData';
 
 export default function Create() {
 	const [form, setForm] = useState({
@@ -903,6 +904,9 @@ export default function Create() {
 						</form>
 					</div>
 				)}
+			</div>
+			<div>
+				<WorkoutData />
 			</div>
 		</div>
 	);
