@@ -905,7 +905,10 @@ export default function Create() {
 					</div>
 				)}
 			</div>
-			<div>
+			<div
+				className='container square border'
+				style={{ backgroundcolor: '#fafafa' }}
+			>
 				<WorkoutData />
 			</div>
 		</div>
