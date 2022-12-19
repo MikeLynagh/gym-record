@@ -1,59 +1,5 @@
-// import React from 'react';
-// class WorkoutData extends React.Component {
-// 	// constructor
-// 	constructor(props) {
-// 		super(props);
-
-// 		this.state = {
-// 			items: [],
-// 			DataisLoaded: false,
-// 		};
-// 	}
-// 	// componentDidMount used to execute code
-// 	componentDidMount() {
-// 		fetch( 'https://exercisedb.p.rapidapi.com/exercises', {
-//   	"method": "GET",
-//  	 "headers": {
-// 	'X-RapidAPI-Key': '7f72d4ba00mshf1ff8b96262e395p13878bjsn00b8ac2a4c8f',
-//     'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
-//   }
-// })
-// 		.then((response) => response.json())
-// 			.then((response) => {
-// 				this.setState({
-// 					items: response,
-// 					DataisLoaded: true,
-// 				})
-// 			})
-// 			.catch(err => {console.log(err)})
-// 	}
-
-// 	render() {
-// 		const { DataisLoaded, items } = this.state;
-// 		if (!DataisLoaded)
-// 			return (
-// 				<div>
-// 					<h1>Please wait, content loading ...</h1>
-// 				</div>
-// 			);
-
-// 		return (
-// 			<div>
-// 				<h1>Fetched data from api </h1>
-// 				{items.map((item) => (
-// 					<ol key={item.id}>
-// 						Name: {item.name}
-// 						Description: {item.description}
-// 					</ol>
-// 				))}
-// 			</div>
-// 		);
-// 	}
-// }
-
-// export default WorkoutData;
-
 import React, { useState, useEffect } from 'react';
+import bootstrap from 'bootstrap';
 
 export default function WorkoutData() {
 	const [error, setError] = useState(null);
@@ -105,24 +51,26 @@ export default function WorkoutData() {
 		return <div>Loading ...</div>;
 	} else {
 		return (
-			<div className='wrapper'>
-				<div className='search-wrapper'>
-					<label htmlFor='search-form'>
-						<input
-							type='search'
-							name='search-form'
-							id='search-form'
-							className='search-input'
-							placeholder='Search for ...'
-							value={q}
-							onChange={(e) => setQ(e.target.value)}
-						/>
-						<span className='sr-only'>Search Exercises </span>
-					</label>
+			<div className='d-grid'>
+				<div>
+					<div className='form-outline '>
+						<label htmlFor='search-form'>
+							<input
+								type='search'
+								name='search-form'
+								id='search-form'
+								className='form-control'
+								placeholder='Search Exercise ... '
+								value={q}
+								onChange={(e) => setQ(e.target.value)}
+							/>
+						</label>
+					</div>
+
 					<ul>
 						{search(items).map((item) => (
 							<ol key={item.id}>
-								<div className='card .mx-auto'>
+								<div className='card'>
 									<img
 										className='card-img-top'
 										src={item.gifUrl}
