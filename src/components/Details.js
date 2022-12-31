@@ -26,7 +26,7 @@ const Details = () => {
 	const userlogout = () => {
 		// removes details for current user logged in
 		localStorage.removeItem('user_login');
-		history('/register');
+		history('/');
 	};
 
 	useEffect(() => {
@@ -40,10 +40,7 @@ const Details = () => {
 					<div className='container'>
 						<div className='error d-flex flex-column justify-content-lg-center align-items-center'>
 							<h4>404 Error !User not found!</h4>
-							<button
-								className=' btn btn-dark'
-								onClick={() => history('/register')}
-							>
+							<button className=' btn btn-dark' onClick={() => history('/')}>
 								Sign up or Login
 							</button>
 						</div>

@@ -106,7 +106,7 @@ export default function Create() {
 			sets14: '',
 			sets15: '',
 		});
-		navigate('/');
+		navigate('/workoutlist');
 	}
 
 	// form to record workout

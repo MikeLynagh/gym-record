@@ -36,10 +36,10 @@ const App = () => {
 			<Navbar />
 			<Routes>
 				<Route path='/login' element={<Login />} />
-				<Route path='/register' element={<Register />} />
+				<Route path='/' element={<Register />} />
 				<Route
 					exact
-					path='/'
+					path='/workoutlist'
 					element={user ? <WorkoutList /> : <Navigate to='/user' />}
 				/>
 				<Route

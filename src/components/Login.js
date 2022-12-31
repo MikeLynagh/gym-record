@@ -55,7 +55,7 @@ export default function Login() {
 					console.log('user logged in successfully ');
 					localStorage.setItem('user_login', JSON.stringify(getUserArr));
 					// redirect to home page
-					history('/');
+					history('/create');
 				}
 			}
 		}

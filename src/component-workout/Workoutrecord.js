@@ -47,20 +47,6 @@ const Record = (props) => (
 	</div>
 );
 
-// const LastWeight = (props) => {
-// 	const [oldweight, setOldWeight] = useState(props.record.weight);
-// 	const [addweight] = useState(2.5);
-// 	const weight2 = props.record.weight1;
-// 	const weight = 10;
-// 	return (
-// 		<div>
-// 			<h1>{parseInt(weight2) + addweight}</h1>
-// 			<h1>{parseInt(oldweight) + weight}</h1>
-// 		</div>
-// 	);
-// };
-
-//takes the last weight used and adds 2.5kg
 const LastWeight = (props) => {
 	const addweight = 2.5;
 	const weight = props.record.weight;
