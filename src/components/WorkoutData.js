@@ -51,9 +51,10 @@ export default function WorkoutData() {
 		return <div>Loading ...</div>;
 	} else {
 		return (
-			<div className='d-grid'>
+			<div className='container'>
 				<div>
-					<div className='form-outline '>
+					<h1 className='row justify-content-center'>Exercise Library </h1>
+					<div className='row justify-content-center form-outline '>
 						<label htmlFor='search-form'>
 							<input
 								type='search'
@@ -66,25 +67,26 @@ export default function WorkoutData() {
 							/>
 						</label>
 					</div>
-
-					<ul>
-						{search(items).map((item) => (
-							<ol key={item.id}>
-								<div className='card'>
-									<img
-										className='card-img-top'
-										src={item.gifUrl}
-										alt='image of gym exercise'
-									/>
-									<div className='card-body'>
-										<h5 className='card-title'>{item.name}</h5>
-										<p class='card-text'>Equipment: {item.equipment}</p>
-										<p class='card-text'>Target Body Area: {item.target}</p>
+					<div>
+						<>
+							{search(items).map((item) => (
+								<ol key={item.id}>
+									<div className='row justify-content-center card mt-3 mx-auto'>
+										<img
+											className='card-img-top'
+											src={item.gifUrl}
+											alt='image of gym exercise'
+										/>
+										<div className='card-body'>
+											<h5 className='card-title'>{item.name}</h5>
+											<p class='card-text'>Equipment: {item.equipment}</p>
+											<p class='card-text'>Target Body Area: {item.target}</p>
+										</div>
 									</div>
-								</div>
-							</ol>
-						))}
-					</ul>
+								</ol>
+							))}
+						</>
+					</div>
 					<div>{items.map((items) => console.log(items))}</div>
 				</div>
 			</div>
