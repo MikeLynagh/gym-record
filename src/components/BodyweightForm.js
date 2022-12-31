@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import Records from './Records';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
+import Navbar from './navbar';
 
 function BodyweightForm() {
 	const [date, setDate] = useState('');
@@ -36,34 +37,37 @@ function BodyweightForm() {
 	}, []);
 
 	return (
-		<div className='container'>
-			<Form className='d-grid gap-2' style={{ margin: '10rem' }}>
-				<div>
-					<h2 className='card-title'>Add Bodyweight</h2>
-				</div>
-				<Form.Group className='mb-3' controlId='formDate'>
-					<label htmlFor='sets'>Enter Date ...</label>
-					<Form.Control
-						type='date'
-						placeholder='Enter Date'
-						required
-						onChange={(e) => setDate(e.target.value)}
-					></Form.Control>
-				</Form.Group>
-				<Form.Group className='mb-3' controlId='formWeight'>
-					<label htmlFor='sets'>Enter Bodyweight ...</label>
+		<div>
+			<Navbar />
+			<div className='container'>
+				<Form className='d-grid gap-2' style={{ margin: '10rem' }}>
+					<div>
+						<h2 className='card-title'>Add Bodyweight</h2>
+					</div>
+					<Form.Group className='mb-3' controlId='formDate'>
+						<label htmlFor='sets'>Enter Date ...</label>
+						<Form.Control
+							type='date'
+							placeholder='Enter Date'
+							required
+							onChange={(e) => setDate(e.target.value)}
+						></Form.Control>
+					</Form.Group>
+					<Form.Group className='mb-3' controlId='formWeight'>
+						<label htmlFor='sets'>Enter Bodyweight ...</label>
 
-					<Form.Control
-						type='text'
-						placeholder='Enter Bodyweight'
-						required
-						onChange={(e) => setWeight(e.target.value)}
-					></Form.Control>
-				</Form.Group>
-				<Button onClick={(e) => handleSubmit(e)} type='submit'>
-					Add Weight Record
-				</Button>
-			</Form>
+						<Form.Control
+							type='text'
+							placeholder='Enter Bodyweight'
+							required
+							onChange={(e) => setWeight(e.target.value)}
+						></Form.Control>
+					</Form.Group>
+					<Button onClick={(e) => handleSubmit(e)} type='submit'>
+						Add Weight Record
+					</Button>
+				</Form>
+			</div>
 		</div>
 	);
 }

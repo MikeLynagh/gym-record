@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import WorkoutData from '../components/WorkoutData';
+import Navbar from '../components/navbar';
 
 export default function Create() {
 	const [form, setForm] = useState({
@@ -113,6 +114,8 @@ export default function Create() {
 
 	return (
 		<div>
+			<Navbar />
+
 			<div
 				className='container square border'
 				style={{ backgroundcolor: '#fafafa' }}

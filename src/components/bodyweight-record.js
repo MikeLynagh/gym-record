@@ -3,6 +3,7 @@ import { Button, Table } from 'react-bootstrap';
 import Records from './Records';
 import { Link, useNavigate } from 'react-router-dom';
 import LineChart from './LineChart';
+import Navbar from './navbar';
 
 const BodyweightRecord = () => {
 	let history = useNavigate();
@@ -50,54 +51,57 @@ const BodyweightRecord = () => {
 	});
 
 	return (
-		<div className='container'>
-			<div>
-				<LineChart chartData={userData} />
-			</div>
-			<h2>List of Bodyweight Entries </h2>
-			<div style={{ margin: '8rem' }}>
-				<Table striped bordered hover size='sm'>
-					<thead>
-						<tr>
-							<th>Date</th>
-							<th>Weight</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						{Records && Records.length > 0
-							? Records.map((item) => {
-									return (
-										<tr>
-											<td>{item.date}</td>
-											<td>{item.weight} kg</td>
-											<td>
-												<Button
-													onClick={() => handleDelete(item.id)}
-													className='btn btn-dark'
-												>
-													Delete
-												</Button>
-												&nbsp;
-												<Button
-													onClick={() =>
-														handleEdit(item.date, item.weight, item.id)
-													}
-													className='btn btn-dark'
-												>
-													Edit
-												</Button>
-											</td>
-										</tr>
-									);
-							  })
-							: 'No data available'}
-					</tbody>
-				</Table>
-				<br></br>
-				<Link className='d-grid gap-2' to='/add-bodyweightrecord'>
-					<Button size='lg btn btn-dark'>Create</Button>
-				</Link>
+		<div>
+			<Navbar />
+			<div className='container'>
+				<div>
+					<LineChart chartData={userData} />
+				</div>
+				<h2>List of Bodyweight Entries </h2>
+				<div style={{ margin: '8rem' }}>
+					<Table striped bordered hover size='sm'>
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Weight</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{Records && Records.length > 0
+								? Records.map((item) => {
+										return (
+											<tr>
+												<td>{item.date}</td>
+												<td>{item.weight} kg</td>
+												<td>
+													<Button
+														onClick={() => handleDelete(item.id)}
+														className='btn btn-dark'
+													>
+														Delete
+													</Button>
+													&nbsp;
+													<Button
+														onClick={() =>
+															handleEdit(item.date, item.weight, item.id)
+														}
+														className='btn btn-dark'
+													>
+														Edit
+													</Button>
+												</td>
+											</tr>
+										);
+								  })
+								: 'No data available'}
+						</tbody>
+					</Table>
+					<br></br>
+					<Link className='d-grid gap-2' to='/add-bodyweightrecord'>
+						<Button size='lg btn btn-dark'>Create</Button>
+					</Link>
+				</div>
 			</div>
 		</div>
 	);

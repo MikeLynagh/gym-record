@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Navbar from '../components/navbar';
 
 const Record = (props) => (
 	<div className='row mx-auto' style={{ width: '200px' }}>
@@ -98,19 +99,6 @@ const LastWeight = (props) => {
 	);
 };
 
-// const LastWeight = (props) => {
-// 	const [oldweight, setOldWeight] = useState(props.record.weight);
-// 	const [addweight] = useState(2.5);
-// 	const weight2 = props.record.weight1;
-// 	const weight = 10;
-// 	return (
-// 		<div>
-// 			<h1>{parseInt(weight2) + addweight}</h1>
-// 			<h1>{parseInt(oldweight) + weight}</h1>
-// 		</div>
-// 	);
-// };
-
 export default function WorkoutList() {
 	const [records, setRecords] = useState([]);
 
@@ -168,12 +156,15 @@ export default function WorkoutList() {
 	// this section wil display the table with the records given
 	return (
 		<div>
-			<h1>Target Weights </h1>
-			<div>{IncreaseWeight()}</div>
+			<Navbar />
+			<div>
+				<h1>Target Weights </h1>
+				<div>{IncreaseWeight()}</div>
 
-			<h1 className='header'>Previous Workouts </h1>
+				<h1 className='header'>Previous Workouts </h1>
 
-			<div>{WorkoutList()}</div>
+				<div>{WorkoutList()}</div>
+			</div>
 		</div>
 	);
 }

@@ -33,26 +33,26 @@ const App = () => {
 
 	return (
 		<div>
-			<Navbar />
+			{/* <Navbar /> */}
 			<Routes>
 				<Route path='/login' element={<Login />} />
 				<Route path='/' element={<Register />} />
 				<Route
 					exact
 					path='/workoutlist'
-					element={user ? <WorkoutList /> : <Navigate to='/user' />}
+					element={user ? <WorkoutList /> : <Navigate to='/' />}
 				/>
 				<Route
 					path='/create'
-					element={user ? <Create /> : <Navigate to='/user' />}
+					element={user ? <Create /> : <Navigate to='/' />}
 				/>
 				<Route
 					path='/add-bodyweightrecord'
-					element={user ? <BodyweightForm /> : <Navigate to='user' />}
+					element={user ? <BodyweightForm /> : <Navigate to='/' />}
 				/>
 				<Route
 					path='/view-bodyweight'
-					element={user ? <BodyweightRecord /> : <Navigate to='user' />}
+					element={user ? <BodyweightRecord /> : <Navigate to='/' />}
 				/>
 				<Route path='/edit' element={<Edit />} />
 				<Route path='/user' element={<Details />} />
