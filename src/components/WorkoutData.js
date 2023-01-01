@@ -14,6 +14,7 @@ export default function WorkoutData() {
 	const [searchScope] = useState(['name']);
 
 	useEffect(() => {
+		// make a get request to the url below
 		fetch('https://exercisedb.p.rapidapi.com/exercises', {
 			method: 'GET',
 			headers: {

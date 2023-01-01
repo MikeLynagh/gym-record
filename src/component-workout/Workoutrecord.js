@@ -157,13 +157,13 @@ export default function WorkoutList() {
 	return (
 		<div>
 			<Navbar />
-			<div>
-				<h1>Target Weights </h1>
-				<div>{IncreaseWeight()}</div>
+			<div className='container'>
+				<h1 className='row justify-content-center'>Target Weight </h1>
+				<div className='row justify-content-center'>{IncreaseWeight()}</div>
 
-				<h1 className='header'>Previous Workouts </h1>
+				<h1 className='row justify-content-center'>Previous Workouts </h1>
 
-				<div>{WorkoutList()}</div>
+				<div className='justify-content-center'>{WorkoutList()}</div>
 			</div>
 		</div>
 	);
