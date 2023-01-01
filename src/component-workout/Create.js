@@ -66,7 +66,7 @@ export default function Create() {
 	async function onSubmit(e) {
 		e.preventDefault();
 
-		// When a post request is sent to the create url,
+		// When a post request is sent to the url below,
 		//we'll add a new record to the database.
 
 		// when post request sent, adds a new record to database

@@ -89,7 +89,7 @@ const LastWeight = (props) => {
 							</td>
 							<td>
 								{' '}
-								<h4>{parseInt(weight) + addweight}</h4>
+								<h4>{parseInt(weight2) + addweight}</h4>
 							</td>
 						</tr>
 					</tbody>
