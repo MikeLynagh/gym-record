@@ -40,7 +40,11 @@ function BodyweightForm() {
 		<div>
 			<Navbar />
 			<div className='container'>
-				<Form className='d-grid gap-2' style={{ margin: '10rem' }}>
+				<Form
+					data-testid='form'
+					className='d-grid gap-2'
+					style={{ margin: '10rem' }}
+				>
 					<div>
 						<h2 className='card-title'>Add Bodyweight</h2>
 					</div>
@@ -50,6 +54,7 @@ function BodyweightForm() {
 							type='date'
 							placeholder='Enter Date'
 							required
+							data-testid='formdate'
 							onChange={(e) => setDate(e.target.value)}
 						></Form.Control>
 					</Form.Group>
@@ -59,11 +64,16 @@ function BodyweightForm() {
 						<Form.Control
 							type='text'
 							placeholder='Enter Bodyweight'
+							data-testid='formweight'
 							required
 							onChange={(e) => setWeight(e.target.value)}
 						></Form.Control>
 					</Form.Group>
-					<Button onClick={(e) => handleSubmit(e)} type='submit'>
+					<Button
+						data-testid='submitBtn'
+						onClick={(e) => handleSubmit(e)}
+						type='submit'
+					>
 						Add Weight Record
 					</Button>
 				</Form>
