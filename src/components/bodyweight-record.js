@@ -57,7 +57,9 @@ const BodyweightRecord = () => {
 				<div>
 					<LineChart chartData={userData} />
 				</div>
-				<h2>List of Bodyweight Entries </h2>
+				<h1 className='row justify-content-center'>
+					Previous Bodyweight Records{' '}
+				</h1>
 				<div style={{ margin: '8rem' }}>
 					<Table striped bordered hover size='sm'>
 						<thead>
