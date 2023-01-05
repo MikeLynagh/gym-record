@@ -16,9 +16,3 @@ app.listen(port, () => {
 	});
 	console.log(`Server is running on port: ${port}`);
 });
-
-// cors
-// installs a Node.js package to allow cross origin resource sharing
-
-//dotenv
-// this is installed to hide passwords

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import gymrecordlogo from '../images/gymrecordlogo.png';
+import Maintext from './components-homepage/Maintext';
 
 const Register = (props) => {
 	// use for naviaget
@@ -111,6 +112,9 @@ const Register = (props) => {
 					<NavLink to='/login'>Sign In</NavLink>
 				</span>
 			</p>
+			<div>
+				<Maintext />
+			</div>
 		</div>
 	);
 };
