@@ -1,6 +1,22 @@
+# Welcome to Gym-record
+
+Gym-record is a web application built using the MERN stack.
+It is an exercise workout tracker and bodyweight tracker.
+A user can track their workouts.
+A user can track their bodyweight.
+A user can search through a database of exercise demonstrations.
+
+## A video demonstration of the project is available at
+
+https://www.loom.com/share/5b4142178f5f403a87778a239290489e
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## A video demonstration of the project is available at
+
+https://www.loom.com/share/5b4142178f5f403a87778a239290489e
 
 ## Available Scripts
 
@@ -10,6 +26,16 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+To run the backend of this application,
+cd to the folder 'backend'
+run 'node server.js'
+
+see commands below
+
+### `cd gym-record/backend`
+
+### `node server.js`
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
