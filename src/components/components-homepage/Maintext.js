@@ -3,35 +3,51 @@ import { Container } from 'react-bootstrap';
 import { Carousel } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { FontawesomeObject } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+	faStopwatch,
+	faClipboardList,
+	faDumbbell,
+} from '@fortawesome/free-solid-svg-icons';
 export default function Maintext() {
 	return (
 		<Container className='border-0'>
 			<Row>
+				<hr
+					style={{
+						background: 'teal',
+						color: 'teal',
+						borderColor: 'teal',
+						height: '3px',
+					}}
+				/>
+			</Row>
+			<Row className='text-center'>
 				<Col>
-					<h1 className='text-center'>Welcome to Gym-Record </h1>
-					<h3 className='text-center'>
-						The last training tracker you will need!{' '}
-					</h3>
+					<h3>Track Your Workouts. Build Muscle. Get Strong. </h3>
 				</Col>
 			</Row>
-			<Row>
+			<Row className='text-center'>
 				<Col>
-					<h3 className='text-center'>Track Your Training </h3>
-					<h3 className='text-center'>Build Muscle</h3>
-					<h3 className='text-center'>Get Strong</h3>
-				</Col>
-			</Row>
-			<Row>
-				<Col>
+					<FontAwesomeIcon
+						icon={faStopwatch}
+						className='fa-4x'
+					></FontAwesomeIcon>
 					<h4>Save Time </h4>
-					<FontAwesomeIcon icon={'fa-heart'} />
 				</Col>
 				<Col>
+					<FontAwesomeIcon
+						icon={faClipboardList}
+						className='fa-4x'
+					></FontAwesomeIcon>
 					<h4>No more Pen & Paper </h4>
 				</Col>
 				<Col>
+					<FontAwesomeIcon
+						icon={faDumbbell}
+						className='fa-4x'
+					></FontAwesomeIcon>
+
 					<h4>Focus on what matters most!</h4>
 				</Col>
 			</Row>
@@ -50,51 +66,55 @@ export default function Maintext() {
 				</Col>
 			</Row>
 			<Row className='mb-5'>
+				<hr
+					style={{
+						background: 'teal',
+						color: 'teal',
+						borderColor: 'teal',
+						height: '3px',
+					}}
+				/>
+				<Row>
+					<Col>
+						<h3 className='text-center'>See what people have to say.</h3>
+					</Col>
+				</Row>
 				<Col className='border'>
 					<Carousel>
 						<Carousel.Item>
 							<div>
-								<p>
+								<p className='text-italic'>
 									"Gym-Record means that I don't have to think about what
 									weights I'm meant to use. I feel stronger after 1 week"
 								</p>
 								<p>- James </p>
 							</div>
 							<Carousel.Caption>
-								<h3>First slide label</h3>
-								<p>
-									Nulla vitae elit libero, a pharetra augue mollis interdum.
-								</p>
+								<h3>- James </h3>
 							</Carousel.Caption>
 						</Carousel.Item>
 						<Carousel.Item>
 							<div>
-								<p>
-									"Gym-Record means that I don't have to think about what
-									weights I'm meant to use. I feel stronger after 1 week"
+								<p className='text-italic'>
+									"I can just focus on doing the workout Gym-record gives me.
+									It's great. "
 								</p>
-								<p>- Bob </p>
+								<p>- Jack</p>
 							</div>
 							<Carousel.Caption>
-								<h3>Second slide label</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+								<h3> - Jack </h3>
 							</Carousel.Caption>
 						</Carousel.Item>
 						<Carousel.Item>
 							<div>
-								<p>
-									"Gym-Record means that I don't have to think about what
-									weights I'm meant to use. I feel stronger after 1 week"
+								<p className='text-italic'>
+									" I like that it keeps challenging me"
 								</p>
-								<p>- Jack </p>
+								<p>- Sarah </p>
 							</div>
 
 							<Carousel.Caption>
-								<h3>Third slide label</h3>
-								<p>
-									Praesent commodo cursus magna, vel scelerisque nisl
-									consectetur.
-								</p>
+								<h3>- Sarah </h3>
 							</Carousel.Caption>
 						</Carousel.Item>
 					</Carousel>

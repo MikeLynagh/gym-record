@@ -54,11 +54,23 @@ const Register = (props) => {
 
 	return (
 		<div className='main-box'>
-			<img src={gymrecordlogo} className='mx-auto d-block' />
+			<img src={gymrecordlogo} className='mx-auto d-block mt-5' />
 			<form>
 				<div className='row'>
 					<div className='col-md-12 text-center'>
-						<h1>Sign Up</h1>
+						<h1>Welcome To Gym-Record</h1>
+						<h3>The last training tracker you will need!</h3>
+					</div>
+					<hr
+						style={{
+							background: 'teal',
+							color: 'teal',
+							borderColor: 'teal',
+							height: '3px',
+						}}
+					/>
+					<div className='col-md-12 text-center'>
+						<h3>Sign Up Here</h3>
 					</div>
 				</div>
 				<div className='row'>

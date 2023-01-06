@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'react-bootstrap';
+import { Container, Nav, NavDropdown } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import gymrecordlogo from '../images/gymrecordlogo.png';
 
@@ -23,8 +23,8 @@ export default function Navbar() {
 					class='navbar-toggler'
 					type='button'
 					data-bs-toggle='collapse'
-					data-bs-target='#navbarNav'
-					aria-controls='navbarNav'
+					data-bs-target='navbarNav'
+					aria-controls='navbaNav'
 					aria-expanded='false'
 					aria-label='Toggle navigation'
 				>

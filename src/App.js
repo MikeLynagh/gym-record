@@ -1,12 +1,5 @@
-import React, { useState } from 'react';
-import {
-	BroswerRouter,
-	useNavigate,
-	Navigate,
-	Route,
-	Routes,
-} from 'react-router-dom';
-import Navbar from './components/navbar';
+import React from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Create from './component-workout/Create';
 import WorkoutList from './component-workout/Workoutrecord';
 import BodyweightForm from './components/BodyweightForm';

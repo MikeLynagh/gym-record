@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import bootstrap from 'bootstrap';
 
 export default function WorkoutData() {
 	const [error, setError] = useState(null);
@@ -76,7 +75,7 @@ export default function WorkoutData() {
 										<img
 											className='card-img-top'
 											src={item.gifUrl}
-											alt='image of gym exercise'
+											alt='gym exercise'
 										/>
 										<div className='card-body'>
 											<h5 className='card-title'>{item.name}</h5>

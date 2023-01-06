@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { v4 as uuid } from 'uuid';
 import Records from './Records';
 import { useNavigate } from 'react-router-dom';
 

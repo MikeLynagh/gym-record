@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
-import Modal from 'react-bootstrap/Modal';
 import { useNavigate } from 'react-router-dom';
 
 const Details = () => {

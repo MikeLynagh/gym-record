@@ -4,45 +4,78 @@ import Navbar from '../components/navbar';
 const Record = (props) => (
 	<div className='row mx-auto' style={{ width: '200px' }}>
 		<div className='col-sm-8'>
-			<div className='card mt-3' style={{ width: '18rem' }}>
-				<div className='card-body'></div>
-				<h5 className='card-title'>Date: {props.record.date}</h5>
-				<h6 class='card-subtitle mb-2 text-muted'>
-					Exercise 1: {props.record.exercise}, {props.record.weight} kg
-				</h6>
+			<div className='card mx-auto ' style={{ width: '18rem' }}>
+				<div className='card-body'>
+					<h5 className='card-title'>Date: {props.record.date}</h5>
+					<hr
+						style={{
+							background: 'teal',
+							color: 'teal',
+							borderColor: 'teal',
+							height: '3px',
+						}}
+					/>
+					<h6 class='card-subtitle mb-2 text-muted'>
+						Exercise 1: {props.record.exercise}, {props.record.weight} kg
+					</h6>
 
-				<ul className='list-group list-group-flush'>
-					<li className='list-group-item'>
-						Sets and Reps: {props.record.sets1} {props.record.sets2}{' '}
-						{props.record.sets3} {props.record.sets4} {props.record.sets5}
-					</li>
-				</ul>
-				<h6 class='card-subtitle mb-2 text-muted'>
-					Exercise 2: {props.record.exercise1}, {props.record.weight1} kg
-				</h6>
-				<ul className='list-group list-group-flush'>
-					<li className='list-group-item'>
-						Sets and Reps: {props.record.sets6} {props.record.sets7}{' '}
-						{props.record.sets8} {props.record.sets9} {props.record.sets10}
-					</li>
-				</ul>
-				<h6 class='card-subtitle mb-2 text-muted'>
-					Exercise 3: {props.record.exercise2}, {props.record.weight2} kg
-				</h6>
-				<ul className='list-group list-group-flush'>
-					<li className='list-group-item'>
-						Sets and Reps: {props.record.sets1} {props.record.sets2}{' '}
-						{props.record.sets3} {props.record.sets4} {props.record.sets5}
-					</li>
-				</ul>
-				<button
-					className='btn btn-link'
-					onClick={() => {
-						props.deleteRecord(props.record._id);
-					}}
-				>
-					Delete
-				</button>
+					<ul className='list-group list-group-flush'>
+						<li className='list-group-item'>
+							Sets and Reps: {props.record.sets1} {props.record.sets2}{' '}
+							{props.record.sets3} {props.record.sets4} {props.record.sets5}
+						</li>
+					</ul>
+					<hr
+						style={{
+							background: 'teal',
+							color: 'teal',
+							borderColor: 'teal',
+							height: '3px',
+						}}
+					/>
+					<h6 class='card-subtitle mb-2 text-muted'>
+						Exercise 2: {props.record.exercise1}, {props.record.weight1} kg
+					</h6>
+					<ul className='list-group list-group-flush'>
+						<li className='list-group-item'>
+							Sets and Reps: {props.record.sets6} {props.record.sets7}{' '}
+							{props.record.sets8} {props.record.sets9} {props.record.sets10}
+						</li>
+					</ul>
+					<hr
+						style={{
+							background: 'teal',
+							color: 'teal',
+							borderColor: 'teal',
+							height: '3px',
+						}}
+					/>
+					<h6 class='card-subtitle mb-2 text-muted'>
+						Exercise 3: {props.record.exercise2}, {props.record.weight2} kg
+					</h6>
+					<ul className='list-group list-group-flush'>
+						<li className='list-group-item'>
+							Sets and Reps: {props.record.sets1} {props.record.sets2}{' '}
+							{props.record.sets3} {props.record.sets4} {props.record.sets5}
+						</li>
+					</ul>
+					<hr
+						style={{
+							background: 'teal',
+							color: 'teal',
+							borderColor: 'teal',
+							height: '3px',
+						}}
+					/>
+					<button
+						className='btn btn-dark'
+						onClick={() => {
+							props.deleteRecord(props.record._id);
+						}}
+					>
+						Delete
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>

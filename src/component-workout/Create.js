@@ -49,12 +49,6 @@ export default function Create() {
 		setIsShownWorkout2((current) => !current);
 	};
 
-	// function to change boolean status for reps button
-	//change button color from red to green
-	const handleClickReps = (event) => {
-		setIsActive((current) => !current);
-	};
-
 	// function updateForm will update state properties
 	function updateForm(value) {
 		return setForm((prev) => {
@@ -134,7 +128,7 @@ export default function Create() {
 
 				{isShown && (
 					<div>
-						<h1>Complete Workout... </h1>
+						<h1>Complete Workout 1 </h1>
 						<form onSubmit={onSubmit}>
 							<div class='d-flex justify-content-center'>
 								<div className='form-group'>
@@ -174,7 +168,6 @@ export default function Create() {
 							<div class='d-flex justify-content-evenly'>
 								<div className='form-group'>
 									<input
-										onClick={handleClickReps}
 										style={{
 											margin: '10px',
 											display: 'flex',
@@ -522,7 +515,7 @@ export default function Create() {
 				)}
 				{iShownWorkout2 && (
 					<div>
-						<h1>Complete Workout... </h1>
+						<h1>Complete Workout 2 </h1>
 						<form onSubmit={onSubmit}>
 							<div class='d-flex justify-content-center'>
 								<div className='form-group'>

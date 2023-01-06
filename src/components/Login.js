@@ -11,7 +11,7 @@ export default function Login() {
 		password: '',
 	});
 
-	const [data, sendData] = useState([]);
+	// const [data, sendData] = useState([]);
 
 	const getdata = (e) => {
 		// console.log(e.target.value);
@@ -63,7 +63,7 @@ export default function Login() {
 
 	return (
 		<div className='main-box'>
-			<img src={gymrecordlogo} className='mx-auto d-block' />
+			<img src={gymrecordlogo} className='mx-auto d-block' alt='logo' />
 
 			<form>
 				<div className='row'>
