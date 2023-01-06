@@ -3,7 +3,7 @@ import { Button, Table } from 'react-bootstrap';
 import Records from './Records';
 import { Link, useNavigate } from 'react-router-dom';
 import LineChart from './LineChart';
-import Navbar from './navbar';
+import Navigationbar from './Navigationbar';
 
 const BodyweightRecord = () => {
 	let history = useNavigate();
@@ -52,7 +52,7 @@ const BodyweightRecord = () => {
 
 	return (
 		<div>
-			<Navbar />
+			<Navigationbar />
 			<div className='container'>
 				<div>
 					<LineChart chartData={userData} />

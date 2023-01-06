@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/navbar';
+import Navigationbar from '../components/Navigationbar';
 
 const Record = (props) => (
 	<div className='row mx-auto' style={{ width: '200px' }}>
@@ -189,7 +189,7 @@ export default function WorkoutList() {
 	// this section wil display the table with the records given
 	return (
 		<div>
-			<Navbar />
+			<Navigationbar />
 			<div className='container'>
 				<h1 className='row justify-content-center'>Target Weight </h1>
 				<div className='row justify-content-center'>{IncreaseWeight()}</div>

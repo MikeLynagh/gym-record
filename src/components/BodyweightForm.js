@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import Records from './Records';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
-import Navbar from './navbar';
+import Navigationbar from './Navigationbar';
 
 function BodyweightForm() {
 	const [date, setDate] = useState('');
@@ -38,7 +38,7 @@ function BodyweightForm() {
 
 	return (
 		<div>
-			<Navbar />
+			<Navigationbar />
 			<div className='container'>
 				<Form
 					data-testid='form'
