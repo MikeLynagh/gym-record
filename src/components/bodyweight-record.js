@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
-import Records from './Records';
+import Records from './records';
 import { Link, useNavigate } from 'react-router-dom';
 import LineChart from './LineChart';
 import Navigationbar from './Navigationbar';

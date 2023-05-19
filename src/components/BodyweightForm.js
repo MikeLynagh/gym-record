@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import Records from './Records';
+import Records from './records';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 import Navigationbar from './Navigationbar';
@@ -22,7 +22,12 @@ function BodyweightForm() {
 
 		let a = date,
 			b = weight;
+		console.log(`unique id ${uniqueId} date is ${a} weight is ${b}`)
 
+		// retrieve existing records from localstorage or initialize an empty array 
+
+		let Records = JSON.parse(localStorage.getItem("Records")) || []
+		
 		Records.push({ id: uniqueId, date: a, weight: b });
 
 		localStorage.setItem('Records', JSON.stringify(Records));

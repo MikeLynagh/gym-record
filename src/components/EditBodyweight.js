@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import Records from './Records';
+import Records from './records';
 import { useNavigate } from 'react-router-dom';
 
 function Edit() {
