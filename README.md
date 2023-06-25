@@ -4,19 +4,16 @@ Gym-record is a web application built using the MERN stack.
 It is an exercise workout tracker and bodyweight tracker.
 A user can track their workouts.
 A user can track their bodyweight.
-A user can search through a database of exercise demonstrations.
+A user can search through a database of over 700 exercises. The exercise database was added by adding an external API request to exercisedb. 
 
 ## A video demonstration of the project is available at
+https://www.loom.com/share/2975870612554759b71f70cca87003a6
 
-https://www.loom.com/share/5b4142178f5f403a87778a239290489e
 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## A video demonstration of the project is available at
-
-https://www.loom.com/share/5b4142178f5f403a87778a239290489e
 
 ## Available Scripts
 
