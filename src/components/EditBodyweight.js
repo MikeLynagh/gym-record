@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import Records from './records';
+// import Records from './records';
 import { useNavigate } from 'react-router-dom';
 
 function Edit() {
@@ -10,25 +10,58 @@ function Edit() {
 
 	let history = useNavigate();
 
-	var index = Records.map(function (e) {
-		return e.id;
-	}).indexOf(id);
+	// new code here 
+	useEffect(() => {
+		const storedRecords = JSON.parse(localStorage.getItem("Records"))
+		const storedDate = localStorage.getItem("date")
+		const storedWeight = localStorage.getItem("weight")
+		const storedId = localStorage.getItem("id")
+
+		if(storedRecords){
+			const index = storedRecords.findIndex((record) => record.id === storedId)
+
+			if(index !== -1){
+				setDate(storedDate)
+				setWeight(storedWeight)
+				setId(storedId)
+			}
+		}
+	}, [])
+
+
+	// var index = Records.map(function (e) {
+	// 	return e.id;
+	// }).indexOf(id);
+
+	// const handleSubmit = (e) => {
+	// 	e.preventDefault();
+
+	// 	let a = Records[index];
+	// 	a.date = date;
+	// 	a.weight = weight;
+
+	// 	history('/view-bodyweight');
+	// };
+
+	// useEffect(() => {
+	// 	setDate(localStorage.getItem('date'));
+	// 	setWeight(localStorage.getItem('weight'));
+	// 	setId(localStorage.getItem('id'));
+	// }, []);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
-		let a = Records[index];
-		a.date = date;
-		a.weight = weight;
-
+	
+		const updatedRecords = JSON.parse(localStorage.getItem('Records'));
+		const index = updatedRecords.findIndex((record) => record.id === id);
+	
+		if (index !== -1) {
+		  updatedRecords[index] = { ...updatedRecords[index], date, weight };
+		  localStorage.setItem('Records', JSON.stringify(updatedRecords));
+		}
+	
 		history('/view-bodyweight');
-	};
-
-	useEffect(() => {
-		setDate(localStorage.getItem('date'));
-		setWeight(localStorage.getItem('weight'));
-		setId(localStorage.getItem('id'));
-	}, []);
+	  };
 
 	return (
 		<div className='container'>
